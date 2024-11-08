@@ -12,6 +12,7 @@ import TopMovies from './pages/TopMovies'
 import PopularMovies from './pages/PopularMovies'
 import TopSeries from './pages/TopSeries'
 import PopularSeries from './pages/PopularSeries'
+import Searched from './pages/Searched'
 
 function App() {
 
@@ -31,6 +32,8 @@ function App() {
         <Route path="/top_series" element={<TopSeries/>} />
 
         <Route path="/popular_series" element={<PopularSeries/>} />
+
+        <Route path="/searched" element={<Searched/>} />
 
       </Routes>
     

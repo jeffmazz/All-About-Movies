@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // React Router Dom
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +12,14 @@ import { IoSearchSharp } from "react-icons/io5";
 const Navbar = () => {
 
   const navigate = useNavigate()
+
+  const [query, setQuery] = useState('')
+
+  const handleQuery = (e) => {
+    e.preventDefault()
+    if(query == '' || query.trim == '') return
+    navigate(`/searched?q=${query}`)
+  }
 
   return (
     <nav className={styles.navbar}>
@@ -29,10 +39,12 @@ const Navbar = () => {
               </ul>
             </li>
         </ul>
-        <div className={styles.navbar_input_block}>
-            <input type="text" placeholder="Search here!" className={styles.navbar_input}/>
-            <IoSearchSharp className={styles.navbar_input_icon} />
-        </div>
+        <form className={styles.navbar_form} onSubmit={handleQuery}>
+            <input type="text" placeholder="Search here!" className={styles.navbar_input} onChange={(e) => setQuery(e.target.value)}/>
+            <button type="submit" className={styles.navbar_button}>
+              <IoSearchSharp/>
+            </button>
+        </form>
     </nav>
   )
 }

@@ -69,11 +69,10 @@
     border-radius: 0 0 5px 5px;
 }
 
-.navbar_input_block {
+.navbar_form {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 5px;
     border: 1px solid #FFF;
     border-radius: 20px;
     padding: 5px 10px;
@@ -85,13 +84,16 @@
     background-color: transparent;
     color: #FFF;
 }
-
 .navbar_input::placeholder {
     color: #FFF;
 }
 
-.navbar_input_icon {
+.navbar_button {
+    border: none;
+    outline: none;
+    background-color: transparent;
     font-size: 15pt;
     font-weight: bold;
+    color: #FFF;
     cursor: pointer;
 }
