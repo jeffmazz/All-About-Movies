@@ -16,27 +16,6 @@ const Home = () => {
         }
     }
 
-    const [movies, setMovies] = useState([])
-
-    useEffect(() => {
-
-        const getMovies = async() => {
-
-            try {
-                const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
-                const res = await response.json()
-                setMovies(res.results)
-                console.log(res.results)
-            } catch(err) {
-                console.log(err)
-            }
-            
-        }
-
-        getMovies()
-        
-    }, [])
-
     return (
         <>
             WELCOME
