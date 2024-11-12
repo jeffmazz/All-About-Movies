@@ -1,25 +1,20 @@
-import { useState, useEffect } from "react"
+// Hooks
+import { useState, useEffect, useContext} from "react"
 
+// Components
 import CardList from "../components/CardList"
+
+// Context
+import { ApiKeyContext } from "../context/ApiKeyContext"
 
 const PopularMovies = () => {
 
-    const apiKey = import.meta.env.VITE_TMDB_API_KEY
-
-    const options = {
-        method: "GET",
-        headers: {
-            accept: 'application/json',
-            Authorization: `Bearer ${apiKey}`
-        }
-    }
+    const {apiKey, options} = useContext(ApiKeyContext)
 
     const [popularMovies, setPopularMovies] = useState([])
 
     useEffect(() => {
-
         const getPopularMovies = async() => {
-
             try {
                 const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
                 const res = await response.json()
@@ -28,11 +23,8 @@ const PopularMovies = () => {
             } catch(err) {
                 console.log(err)
             }
-            
         }
-
         getPopularMovies()
-        
     }, [])
 
     return (
