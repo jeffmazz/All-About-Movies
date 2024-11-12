@@ -1,21 +1,18 @@
-import { useState, useEffect } from "react";
+// Hooks
+import { useState, useEffect, useContext } from "react";
 
 // React Router Dom
 import { useSearchParams } from "react-router-dom";
 
+// Components
 import CardList from "../components/CardList";
+
+// Context
+import { ApiKeyContext } from "../context/ApiKeyContext";
 
 const Searched = () => {
     
-    const apiKey = import.meta.env.VITE_TMDB_API_KEY
-
-    const options = {
-        method: "GET",
-        headers: {
-            accept: 'application/json',
-            Authorization: `Bearer ${apiKey}`
-        }
-    }
+    const {apiKey, options} = useContext(ApiKeyContext)
 
     const [searchParams] = useSearchParams()
     const query = searchParams.get('q')    

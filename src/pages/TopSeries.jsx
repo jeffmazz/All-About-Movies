@@ -1,20 +1,15 @@
-import { useState, useEffect } from "react"
+// Hooks
+import { useState, useEffect, useContext } from "react"
 
-// React Icons
-import { FaStar } from "react-icons/fa"
+// Components
 import CardList from "../components/CardList"
+
+// Context
+import { ApiKeyContext } from "../context/ApiKeyContext"
 
 const TopSeries = () => {
 
-    const apiKey = import.meta.env.VITE_TMDB_API_KEY
-
-    const options = {
-        method: "GET",
-        headers: {
-            accept: 'application/json',
-            Authorization: `Bearer ${apiKey}`
-        }
-    }
+    const {apiKey, options} = useContext(ApiKeyContext)
 
     const [topSeries, setTopSeries] = useState([])
 

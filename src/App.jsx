@@ -1,6 +1,7 @@
-import { useState } from 'react'
+// react router dom
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+// css
 import './App.css'
 
 // components
@@ -14,28 +15,28 @@ import TopSeries from './pages/TopSeries'
 import PopularSeries from './pages/PopularSeries'
 import Searched from './pages/Searched'
 
+// context
+import { ApiKeyContext, ApiKeyProvider } from './context/ApiKeyContext'
+
 function App() {
 
   return (
     <BrowserRouter>
 
-      <Navbar/>
+      <ApiKeyProvider>
 
-      <Routes>
+        <Navbar/>
 
-        <Route path="/" element={<Home/>} />
+        <Routes>  
+          <Route path="/" element={<Home/>} />
+          <Route path="/top_movies" element={<TopMovies/>} />
+          <Route path="/popular_movies" element={<PopularMovies/>} />
+          <Route path="/top_series" element={<TopSeries/>} />
+          <Route path="/popular_series" element={<PopularSeries/>} />
+          <Route path="/searched" element={<Searched/>} />
+        </Routes>
 
-        <Route path="/top_movies" element={<TopMovies/>} />
-
-        <Route path="/popular_movies" element={<PopularMovies/>} />
-
-        <Route path="/top_series" element={<TopSeries/>} />
-
-        <Route path="/popular_series" element={<PopularSeries/>} />
-
-        <Route path="/searched" element={<Searched/>} />
-
-      </Routes>
+      </ApiKeyProvider>
     
     </BrowserRouter>
   )
