@@ -32,7 +32,7 @@
     position: fixed;
     top: 0;
     left: -200%;
-    width: 15%;
+    width: 20%;
     padding: 20px;
     background: linear-gradient(135deg, #000 40%, darkred 100%);
     border-radius: 0 0 15px 0;
@@ -135,4 +135,60 @@
     font-weight: bold;
     color: #FFF;
     cursor: pointer;
+}
+
+/* Media Queries */
+
+@media (min-width: 320px) and (max-width: 375px) {
+    .navbar {
+        padding: 25px 20px;
+    }
+    .sidebar {
+        width: 60%;
+    }
+    .navbar_form {
+        padding: 2px 10px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 480px) {
+    .navbar {
+        padding: 25px;
+    }
+    .sidebar {
+        width: 60%;
+    }
+    .navbar_form {
+        padding: 3px 10px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 600px) {
+    .navbar {
+        padding: 25px 40px ;
+    }
+    .sidebar {
+        width: 45%;
+    }
+    .navbar_form {
+        padding: 4px 10px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+    .navbar {
+        padding: 25px 55px;
+    }
+    .sidebar {
+        width: 35%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        padding: 25px 70px;
+    }
+    .sidebar {
+        width: 25%;
+    }
 }
