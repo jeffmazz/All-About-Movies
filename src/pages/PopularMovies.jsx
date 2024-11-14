@@ -19,7 +19,6 @@ const PopularMovies = () => {
                 const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
                 const res = await response.json()
                 setPopularMovies(res.results)
-                console.log(res.results)
             } catch(err) {
                 console.log(err)
             }
