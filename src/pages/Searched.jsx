@@ -24,7 +24,13 @@ const Searched = () => {
         const getSearchedResults = async() => {
 
             try {
-                const response = await fetch(`https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`, options)
+                const response = await fetch(`https://all-about-movies-c5c6a89a6500.herokuapp.com/search`, {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type":"application/json"
+                    },
+                    body: JSON.stringify({query})
+                })
                 const res = await response.json()
                 setSearchedResults(res.results)
             } catch(err) {

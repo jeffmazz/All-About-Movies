@@ -18,7 +18,7 @@ const TopSeries = () => {
         const getTopSeries = async() => {
 
             try {
-                const response = await fetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1', options)
+                const response = await fetch('https://all-about-movies-c5c6a89a6500.herokuapp.com/series/top')
                 const res = await response.json()
                 setTopSeries(res.results)
             } catch(err) {

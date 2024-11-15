@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const handleQuery = (e) => {
     e.preventDefault()
-    if(query == '' || query.trim == '') return
+    if(query == '' || query.trim() == '') return
     navigate(`/searched?q=${query}`)
   }
 
