@@ -1,7 +1,36 @@
-import React from "react"
+import { useEffect, useRef, useState } from "react"
 import { FaStar } from "react-icons/fa"
 
 const CardList = ({data}) => {
+
+    const references = useRef([])
+    const [visibleItems, setVisibleItems] = useState([])
+
+    const checkVisibility = () => {
+
+        const visibleIndexes = []
+
+        references.current.forEach((div, index) => {
+            if(div) {
+                const topRect = div.getBoundingClientRect().top
+                const innerHeight = window.innerHeight
+                if(topRect <= innerHeight) {
+                    visibleIndexes.push(index)
+                }
+            }
+        })
+
+        setVisibleItems(visibleIndexes)
+    }
+
+    useEffect(() => {
+        checkVisibility()
+        window.addEventListener('scroll', checkVisibility)
+        return () => {
+            window.removeEventListener('scroll', checkVisibility)
+        }
+    },[data])
+
   return (
     
     <section className="cards_section">
@@ -11,10 +40,10 @@ const CardList = ({data}) => {
         )
         :
         (
-            data.map((item) => (
+            data.map((item, index) => (
             
-                <div key={item.id} className="card">
-            
+                <div key={item.id} className={`card ${visibleItems.includes(index) ? 'show':''}`} ref={item => (references.current[index] = item)}>
+                    
                     {!item.backdrop_path ? '' : <img className="card_image" src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`} alt={item.title}/> }
                     {(!item.backdrop_path && item.poster_path) && <img className="card_image" src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title}/> }
             
