@@ -17,6 +17,7 @@ import Searched from './pages/Searched'
 
 // context
 import { ApiKeyContext, ApiKeyProvider } from './context/ApiKeyContext'
+import Actors from './pages/Actors'
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/top_series" element={<TopSeries/>} />
           <Route path="/popular_series" element={<PopularSeries/>} />
           <Route path="/searched" element={<Searched/>} />
+          <Route path="/actors" element={<Actors/>} />
         </Routes>
 
       </ApiKeyProvider>

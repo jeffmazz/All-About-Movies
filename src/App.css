@@ -66,12 +66,43 @@ body {
     width: 100%;
     max-height: 190px;
 }
+.card_profile_pic {
+    border-radius: 10px;
+}
 
 .card_title {
     font-size: 18pt;
 }
 
+.card_summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.card_details_content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card_known_for_title {
+    color: #616161;
+
+}
+.card_known_for_title:nth-child(1) {
+    margin-top: 10px;
+}
+
+.card_known_for_title span {
+    font-size: 9pt;
+    color: gold;
+}
+
 .card_star_icon {
+    color: gold;
+}
+
+.popular_icon {
     color: gold;
 }
 

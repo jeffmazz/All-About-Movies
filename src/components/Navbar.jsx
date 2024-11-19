@@ -67,6 +67,8 @@ const Navbar = () => {
 
             <h3 onClick={() => handleNavigate('/')}> Home </h3>
 
+            <h3 onClick={() => handleNavigate('/actors')}> Actors </h3>
+
             <div className={styles.topic}>
               <h3> Movies </h3>
               <ul>

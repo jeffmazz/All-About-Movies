@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { FaStar } from "react-icons/fa"
+import { BiMedal } from "react-icons/bi";
+
 
 const CardList = ({data}) => {
 
@@ -46,7 +48,8 @@ const CardList = ({data}) => {
                     
                     {!item.backdrop_path ? '' : <img className="card_image" src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`} alt={item.title}/> }
                     {(!item.backdrop_path && item.poster_path) && <img className="card_image" src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.title}/> }
-            
+                    {(!item.backdrop_path && !item.poster_path) && <img className="card_profile_pic" src={`https://image.tmdb.org/t/p/original${item.profile_path}`} alt={item.name}/>}
+                    
                     {item.title ? <div className="card_title"> <span> {item.title} </span> </div> : ''}
                     {(!item.title && item.name) && <div className="card_title"> {item.name} </div>}
                     {(!item.title && !item.original_name && !item.name) && <div className="card_title"> <span> {item.original_title} </span> </div>}
@@ -58,7 +61,7 @@ const CardList = ({data}) => {
                             <p> {item.overview} </p>
                         </details>
                     }
-                
+
                     {!item.vote_average ? '' :
                         <div className="card_vote_average">
                             <FaStar className="card_star_icon" /> <span> Vote Average: </span> {item.vote_average}
@@ -82,6 +85,34 @@ const CardList = ({data}) => {
                             <span> First Air Date: </span> <i> {item.first_air_date} </i>
                         </div>
                     }
+
+                    {!item.known_for ? "" : 
+                        <details>
+
+                            <summary className="card_summary"> Known for </summary>
+
+                            <div className="card_details_content">
+
+                                {item.known_for[0].title ? <div className="card_known_for_title"> {item.known_for[0].title} <span> {item.known_for[0].vote_average} <FaStar/> </span> </div> : ''}
+                                {(!item.known_for[0].title && item.known_for[0].original_title) && <div className="card_known_for_title"> {item.known_for[0].orignal_title} <span> {item.known_for[0].vote_average} <FaStar/> </span> </div>}
+                                {(!item.known_for[0].title && !item.known_for[0].original_title) && <div className="card_known_for_title"> {item.known_for[0].name} <span> {item.known_for[0].vote_average} <FaStar/> </span> </div>}
+
+                                {item.known_for[1].title ? <div className="card_known_for_title"> {item.known_for[1].title} <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div> : ''}
+                                {(!item.known_for[1].title && item.known_for[1].original_title) && <div className="card_known_for_title"> {item.known_for[1].orignal_title} <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div>}
+                                {(!item.known_for[1].title && !item.known_for[1].original_title) && <div className="card_known_for_title"> {item.known_for[1].name} <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div>}
+
+                                {item.known_for[2].title ? <div className="card_known_for_title"> {item.known_for[2].title} <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div> : ''}
+                                {(!item.known_for[2].title && item.known_for[2].original_title) && <div className="card_known_for_title"> {item.known_for[2].orignal_title}  <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div>}
+                                {(!item.known_for[2].title && !item.known_for[2].original_title) && <div className="card_known_for_title"> {item.known_for[2].name}  <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div>}
+
+                            </div>
+
+                        </details>
+                    }
+
+                    {!item.popularity ? '' : <div> <span> Popularity: </span> {item.popularity} <BiMedal  className="popular_icon"/>
+
+                    </div>}
                 
                 </div>
                 
