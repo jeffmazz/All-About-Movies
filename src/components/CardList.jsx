@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { FaStar } from "react-icons/fa"
 import { BiMedal } from "react-icons/bi";
-
+import KnownForCard from "./KnownForCard";
 
 const CardList = ({data}) => {
 
@@ -86,28 +86,20 @@ const CardList = ({data}) => {
                         </div>
                     }
 
-                    {!item.known_for ? "" : 
-                        <details>
+                    {Array.isArray(item.known_for) && item.known_for.length > 0 && 
+                        (<details>
 
                             <summary className="card_summary"> Known for </summary>
 
                             <div className="card_details_content">
 
-                                {item.known_for[0].title ? <div className="card_known_for_title"> {item.known_for[0].title} <span> {item.known_for[0].vote_average} <FaStar/> </span> </div> : ''}
-                                {(!item.known_for[0].title && item.known_for[0].original_title) && <div className="card_known_for_title"> {item.known_for[0].orignal_title} <span> {item.known_for[0].vote_average} <FaStar/> </span> </div>}
-                                {(!item.known_for[0].title && !item.known_for[0].original_title) && <div className="card_known_for_title"> {item.known_for[0].name} <span> {item.known_for[0].vote_average} <FaStar/> </span> </div>}
-
-                                {item.known_for[1].title ? <div className="card_known_for_title"> {item.known_for[1].title} <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div> : ''}
-                                {(!item.known_for[1].title && item.known_for[1].original_title) && <div className="card_known_for_title"> {item.known_for[1].orignal_title} <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div>}
-                                {(!item.known_for[1].title && !item.known_for[1].original_title) && <div className="card_known_for_title"> {item.known_for[1].name} <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div>}
-
-                                {item.known_for[2].title ? <div className="card_known_for_title"> {item.known_for[2].title} <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div> : ''}
-                                {(!item.known_for[2].title && item.known_for[2].original_title) && <div className="card_known_for_title"> {item.known_for[2].orignal_title}  <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div>}
-                                {(!item.known_for[2].title && !item.known_for[2].original_title) && <div className="card_known_for_title"> {item.known_for[2].name}  <span> {item.known_for[0].vote_average} <FaStar/> </span>  </div>}
+                                {item.known_for.map((known, index) => (
+                                    <KnownForCard key={index} knownFor={known}/>
+                                ))}
 
                             </div>
 
-                        </details>
+                        </details>)
                     }
 
                     {!item.popularity ? '' : <div> <span> Popularity: </span> {item.popularity} <BiMedal  className="popular_icon"/>
