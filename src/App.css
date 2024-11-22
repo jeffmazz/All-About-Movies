@@ -8,7 +8,6 @@
 body {
     min-height: 100vh;
     background: linear-gradient(darkred 0%, #000 100%);
-    padding-bottom: 70px;
     color: #FFF;
 }
 
@@ -29,6 +28,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
+    padding-bottom: 70px;
 }
 
 .cards_section span {
