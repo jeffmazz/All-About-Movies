@@ -9,6 +9,14 @@ import { GrPrevious } from "react-icons/gr";
 const Home = () => {
 
     const refs = useRef([])
+    const overlayRef = useRef(null)
+    const carouselBlockerRef = useRef(null)
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const currentIndexRef = useRef(currentIndex)
+
+    useEffect(() => {
+        currentIndexRef.current = currentIndex
+    }, [currentIndex])
 
     const movies = [
         {
@@ -29,57 +37,84 @@ const Home = () => {
         
     ]
 
-    const [currentIndex, setCurrentIndex] = useState(0)
+    const changeImageFromButton = (value) => {
+        overlayRef.current.classList.add(styles.show)
+        setTimeout(() => {
+            overlayRef.current.classList.remove(styles.show)
+            setCurrentIndex(value)
+        }, 300)
+    }
 
-    const overlayRef = useRef(null)
+    const changeImageFromCarousel = (value) => {
+        overlayRef.current.classList.add(styles.show)
+        carouselBlockerRef.current.classList.add(styles.active)
+        setTimeout(() => {
+            overlayRef.current.classList.remove(styles.show)
+            setCurrentIndex(value)
+        }, 300)
+        setTimeout(() => {
+            carouselBlockerRef.current.classList.remove(styles.active)
+        }, 800)
+    }
 
     useEffect(() => {
+
+        const handleMouseOver = (index) => {
+            if(currentIndexRef.current === index) return
+            changeImageFromCarousel(index)
+        }
 
         refs.current.forEach((ref, index) => {
-            ref.addEventListener('mouseover', () => {
-                setCurrentIndex(index)
-            })
+
+            const listener = () => handleMouseOver(index)
+
+            ref.addEventListener('mouseover', listener)
+
+            ref.listener = listener
+
         })
 
-    })
-        
-    const prevImage = () => {
-        if(currentIndex === 0) {
-            setTimeout(() => {
-                setCurrentIndex(2)
-            }, 300)
-            return
-        }
-        setCurrentIndex((prevIndex) => prevIndex - 1)
-    }
-    
-    const nextImage = () => {
-        if(currentIndex === 2) {
-            setTimeout(() => {
-                setCurrentIndex(0)
-            }, 300)
-            return
-        }
-        setCurrentIndex((prevIndex) => prevIndex + 1)
-    }
-
-    const showOverlay = () => {
-
-        if(overlayRef.current) {
-            overlayRef.current.classList.add(styles.show)
-
-            setTimeout(() => {
-                if(overlayRef.current) {
-                    overlayRef.current.classList.remove(styles.show)
+        return () => {
+            refs.current.forEach((ref) => {
+                if(ref.listener) {
+                    ref.removeEventListener('mouseover', ref.listener)
+                    delete ref.listener
                 }
-            }, 300)
+            })
         }
 
-    }
+    }, [])
 
     useEffect(() => {
-        showOverlay()
+        refs.current.forEach((ref, index) => {
+            
+            if(currentIndexRef.current === index) {
+                ref.classList.add(styles.active)
+                ref.classList.remove(styles.disabled)
+            } else {
+                ref.classList.remove(styles.active)
+                ref.classList.add(styles.disabled)
+            }
+
+        })
     }, [currentIndex])
+
+    const prevImage = () => {
+        if(currentIndex === 0) {
+            changeImageFromButton(2)
+            return
+        } else {
+            changeImageFromButton(currentIndex-1)
+        }
+    }
+    const nextImage = () => {
+        if(currentIndex === 2) {
+            changeImageFromButton(0)
+            return
+        } else {
+            changeImageFromButton(currentIndex+1)
+        }
+    }
 
     return (
 
@@ -87,9 +122,7 @@ const Home = () => {
 
             <div className={styles.container} style={{backgroundImage: `linear-gradient(to top, #000 0%, #000 10%, rgba(0,0,0,0) 100%), URL(${movies[currentIndex].photo_path})`}}>
 
-                <div className={styles.overlay} ref={overlayRef}>
-
-                </div>
+                <div className={styles.overlay} ref={overlayRef}></div>
 
                 <section className={styles.infos}>
                     <h3 className={styles.title}> {movies[currentIndex].title} </h3>
@@ -109,6 +142,8 @@ const Home = () => {
                     ))}
 
                 </section>
+
+                <div className={styles.carousel_blocker} ref={carouselBlockerRef}></div>
 
                 <button onClick={prevImage} className={styles.prevBtn}>
                     <GrPrevious />
