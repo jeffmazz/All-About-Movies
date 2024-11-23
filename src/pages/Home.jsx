@@ -66,19 +66,19 @@ const Home = () => {
 
         refs.current.forEach((ref, index) => {
 
-            const listener = () => handleMouseOver(index)
-
-            ref.addEventListener('mouseover', listener)
-
-            ref.listener = listener
+            if(ref) {
+                const listener = () => handleMouseOver(index)
+                ref.addEventListener('mouseover', listener)
+                ref.listener = listener
+            }
 
         })
 
         return () => {
             refs.current.forEach((ref) => {
-                if(ref.listener) {
+                if(ref && ref.listener) {
                     ref.removeEventListener('mouseover', ref.listener)
-                    delete ref.listener
+                    ref.listener = null
                 }
             })
         }
