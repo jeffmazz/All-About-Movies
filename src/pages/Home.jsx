@@ -21,17 +21,17 @@ const Home = () => {
     const movies = [
         {
             title: "Wall-e",
-            synopsis: "Após entulhar a Terra de lixo e poluir a atmosfera com gases tóxicos, a humanidade deixou o planeta e passou a viver em uma gigantesca nave. O plano era que o retiro durasse alguns poucos anos, com robôs sendo deixados para limpar o planeta. WALL-E é o último destes robôs, e sua vida consiste em compactar o lixo existente no planeta. Até que um dia surge repentinamente uma nave, que traz um novo e moderno robô: Eva. A princípio curioso, WALL-E se apaixona e resolve segui-la por toda a galáxia.",
+            synopsis: "WALL-E é um robô que vive compactando lixo na Terra até conhecer Eva, por quem se apaixona e a segue por toda a galáxia.",
             photo_path: "/wall-e.jpeg"
         },
         {
             title: "Spider-Man",
-            synopsis: "Depois de se reunir com Gwen Stacy, Homem-Aranha é jogado no multiverso. Lá, o super-herói aracnídeo encontra uma numerosa equipe encarregada de proteger sua própria existência.",
+            synopsis: "Homem-Aranha se junta a Gwen Stacy e viaja pelo multiverso, enfrentando desafios ao lado de uma equipe de heróis aracnídeos.",
             photo_path: "/spiderman.jpg"
         },
         {
             title: "John Wick",
-            synopsis: "O filme acompanha John Wick (Keanu Reeves), um assassino aposentado que volta a ativa por vingança e começa a ser perseguido pelos maiores assassinos do mundo.",
+            synopsis: "John Wick, um assassino aposentado, busca vingança e acaba sendo perseguido por assassinos perigosos de todo o mundo.",
             photo_path: "/johnwick.jpeg"
         },
         
