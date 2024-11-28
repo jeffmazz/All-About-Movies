@@ -1,6 +1,6 @@
 .container {
-    width: 100vw;
-    height: 85vh;
+    width: auto;
+    height: 86vh;
     background-color: rgba(255,255,255,0);
     padding: 40px;
 
@@ -145,7 +145,8 @@
 }
 
 .extra h3,
-.extra h4 {
+.extra h4,
+.extra p {
     text-align: center;
 }
 

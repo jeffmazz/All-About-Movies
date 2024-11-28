@@ -21,36 +21,45 @@ const Home = () => {
 
     const movies = [
         {
-            title: "Wall-e",
-            synopsis: "WALL-E é um robô que vive compactando lixo na Terra até conhecer Eva, por quem se apaixona e a segue por toda a galáxia.",
-            photo_path: "/wall-e.jpeg",
-            genre: 'animation',
-            duration: '1h 38min',
-            rating: '4.9/5',
-            curious_title: 'WALL-E is inspired by a real-world object!',
-            curious_text: "The design of the main character was inspired by a real trash compactor, which makes perfect sense since he spends his days cleaning and compacting Earth's garbage. Additionally, WALL-E's eyes were based on Panavision camera lenses, used in cinema, to give him a more expressive and captivating appearance."
+            "title": "Penguin Town",
+            "synopsis": "Penguin Town é uma série documental que segue a vida de pinguins no litoral da África do Sul, enquanto eles enfrentam desafios, fazem suas escolhas e formam famílias em um ambiente inusitado.",
+            "photo_path": "/penguin.png",
+            "genre": "documentary, nature, family",
+            "duration": "1h 25min (episódios variados)",
+            "rating": "4.5/5",
+            "curious_title": "A divertida série de pinguins!",
+            "curious_text": "Os pinguins da série são filmados em suas interações reais, e a série captura momentos emocionantes e engraçados da vida selvagem, mostrando a beleza e os desafios do ambiente natural."
         },
         {
-            title: "Spider-Man",
-            synopsis: "Homem-Aranha se junta a Gwen Stacy e viaja pelo multiverso, enfrentando desafios ao lado de uma equipe de heróis aracnídeos.",
-            photo_path: "/spiderman.jpg",
-            genre: 'action',
-            duration: '2h 20min',
-            rating: '4.4/5',
-            curious_title: "Spider-Man: A New Multiverse",
-            curious_text: "In Spider-Man: Into the Spider-Verse, we follow teenager Miles Morales, who, after a bite from a radioactive spider, gains spider-powers. When a new villain, Kingpin, opens a portal to the multiverse, Miles meets several different Spider-People, including the legendary Peter B. Parker. Together, they must stop Kingpin from destroying the multiverse, while Miles learns what it truly means to be Spider-Man. This animated film is celebrated for its innovative animation style and its heartwarming, action-packed story.",
+            "title": "Avengers: Endgame",
+            "synopsis": "After the devastating events of Infinity War, the Avengers assemble once more to undo the destruction caused by Thanos and restore balance to the universe.",
+            "photo_path": "/avengers.png",
+            "genre": "action, adventure, science fiction",
+            "duration": "3h 1min",
+            "rating": "5/5",
+            "curious_title": "A record-breaking finale!",
+            "curious_text": "Avengers: Endgame became the highest-grossing film of all time for a period, surpassing Avatar, until its own sequel reclaimed the title."
         },
         {
-            title: "John Wick",
-            synopsis: "John Wick, um assassino aposentado, busca vingança e acaba sendo perseguido por assassinos perigosos de todo o mundo.",
-            photo_path: "/johnwick.jpeg",
-            genre: 'action',
-            duration: '2h 49min',
-            rating: '3.7/5',
-            curious_title: 'John Wick: A Vengeful Return',
-            curious_text: "John Wick follows a retired hitman, played by Keanu Reeves, who is forced to come out of retirement for revenge after the death of his beloved dog, a final gift from his late wife. As he embarks on a relentless mission to take down those responsible, he finds himself being hunted by the world's deadliest assassins. Known for its high-octane action scenes, stylish choreography, and deep world-building, John Wick became a cultural phenomenon in the action genre"
+            "title": "Batman Begins",
+            "synopsis": "Bruce Wayne's journey to becoming Batman begins as he confronts his inner demons and trains to fight the criminal underworld of Gotham City. He takes on the fearsome role to protect his city from the growing threats.",
+            "photo_path": "/batman.png",
+            "genre": "action, crime, drama",
+            "duration": "2h 20min",
+            "rating": "4.8/5",
+            "curious_title": "Christopher Nolan's reboot of the Batman franchise!",
+            "curious_text": "Batman Begins was the start of Christopher Nolan's iconic trilogy, which redefined the superhero genre with a darker and more realistic take on the character."
         },
-        
+        {
+            "title": "WALL·E",
+            "synopsis": "WALL·E is a robot who spends his days collecting trash on Earth until he meets Eve, a sleek and futuristic robot. He falls in love with her and embarks on an adventure across the galaxy to save the future of mankind.",
+            "photo_path": "/wall-e.png",
+            "genre": "animation",
+            "duration": "1h 38min",
+            "rating": "4.9/5",
+            "curious_title": "WALL·E is inspired by a real-world object!",
+            "curious_text": "WALL·E's design was inspired by a real-world vacuum cleaner robot, giving it a unique and lovable character, despite being an unlikely hero."
+        }
     ]
 
     const changeImageFromButton = (value) => {
@@ -117,14 +126,14 @@ const Home = () => {
 
     const prevImage = () => {
         if(currentIndex === 0) {
-            changeImageFromButton(2)
+            changeImageFromButton(3)
             return
         } else {
             changeImageFromButton(currentIndex-1)
         }
     }
     const nextImage = () => {
-        if(currentIndex === 2) {
+        if(currentIndex === 3) {
             changeImageFromButton(0)
             return
         } else {
