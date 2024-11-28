@@ -21,20 +21,20 @@ const Home = () => {
 
     const movies = [
         {
-            "title": "Penguin Town",
-            "synopsis": "Penguin Town é uma série documental que segue a vida de pinguins no litoral da África do Sul, enquanto eles enfrentam desafios, fazem suas escolhas e formam famílias em um ambiente inusitado.",
+            "title": "The Penguin",
+            "synopsis": "The series follows the rise of the villain Penguin (Oswald Cobblepot) in the streets of Gotham, showcasing his journey to become the city's most powerful crime boss, following the events of 'The Batman'.",
             "photo_path": "/penguin.png",
-            "genre": "documentary, nature, family",
-            "duration": "1h 25min (episódios variados)",
-            "rating": "4.5/5",
-            "curious_title": "A divertida série de pinguins!",
-            "curious_text": "Os pinguins da série são filmados em suas interações reais, e a série captura momentos emocionantes e engraçados da vida selvagem, mostrando a beleza e os desafios do ambiente natural."
+            "genre": "crime",
+            "duration": "8 episodes",
+            "rating": "To be rated",
+            "curious_title": "The Penguin is a spin-off of 'The Batman'!",
+            "curious_text": "The series is created as a spin-off from 'The Batman' (2022), with Colin Farrell reprising his role as Oswald Cobblepot. The show explores Penguin's rise to power in Gotham."
         },
         {
             "title": "Avengers: Endgame",
             "synopsis": "After the devastating events of Infinity War, the Avengers assemble once more to undo the destruction caused by Thanos and restore balance to the universe.",
             "photo_path": "/avengers.png",
-            "genre": "action, adventure, science fiction",
+            "genre": "action",
             "duration": "3h 1min",
             "rating": "5/5",
             "curious_title": "A record-breaking finale!",
@@ -44,7 +44,7 @@ const Home = () => {
             "title": "Batman Begins",
             "synopsis": "Bruce Wayne's journey to becoming Batman begins as he confronts his inner demons and trains to fight the criminal underworld of Gotham City. He takes on the fearsome role to protect his city from the growing threats.",
             "photo_path": "/batman.png",
-            "genre": "action, crime, drama",
+            "genre": "action",
             "duration": "2h 20min",
             "rating": "4.8/5",
             "curious_title": "Christopher Nolan's reboot of the Batman franchise!",
