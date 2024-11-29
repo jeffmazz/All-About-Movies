@@ -1,4 +1,4 @@
-import {useState, React, useRef, useEffect} from "react"
+import {useState, React, useRef, useEffect, useContext} from "react"
 
 import styles from "./Home.module.css"
 
@@ -6,12 +6,15 @@ import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
 import { FaStar } from "react-icons/fa";
 
+import { ApiKeyContext } from "../context/ApiKeyContext";
 
 const Home = () => {
 
+    const {apiKey, options} = useContext(ApiKeyContext)
+
     const refs = useRef([])
     const overlayRef = useRef(null)
-    const carouselBlockerRef = useRef(null)
+    const galleryBlockerRef = useRef(null)
     const [currentIndex, setCurrentIndex] = useState(0)
     const currentIndexRef = useRef(currentIndex)
 
@@ -72,13 +75,13 @@ const Home = () => {
 
     const changeImageFromCarousel = (value) => {
         overlayRef.current.classList.add(styles.show)
-        carouselBlockerRef.current.classList.add(styles.active)
+        galleryBlockerRef.current.classList.add(styles.active)
         setTimeout(() => {
             overlayRef.current.classList.remove(styles.show)
             setCurrentIndex(value)
         }, 300)
         setTimeout(() => {
-            carouselBlockerRef.current.classList.remove(styles.active)
+            galleryBlockerRef.current.classList.remove(styles.active)
         }, 800)
     }
 
@@ -141,6 +144,34 @@ const Home = () => {
         }
     }
 
+    const [carouselGenreList, setCarouselGenreList] = useState([])
+
+    const fetchCarouselGenre = async (id) => {
+        const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${id}`, options)
+        const res = await response.json()
+        if(res.results) {
+            setCarouselGenreList(res.results)
+            console.log(res.results)
+        } else {
+            setCarouselGenreList(null)
+        }
+    }
+
+    const carouselRef = useRef()
+    const carouselPrevBtn = useRef()
+    const carouselNextBtn = useRef()
+
+    useEffect(() => {
+        carouselPrevBtn.current.addEventListener('click', () => {
+            let valueToScroll = carouselRef.current.clientWidth
+            carouselRef.current.scrollBy({top:0, left: -valueToScroll, behavior: 'smooth'})
+        })
+        carouselNextBtn.current.addEventListener('click', () => {
+            let valueToScroll = carouselRef.current.clientWidth
+            carouselRef.current.scrollBy({top:0, left: valueToScroll, behavior: 'smooth'})
+        })
+    }, [])
+
     return (
 
         <>
@@ -154,12 +185,12 @@ const Home = () => {
                     <p className={styles.synopsis}> {movies[currentIndex].synopsis} </p>
                 </section>
 
-                <section className={styles.carousel}>
+                <section className={styles.gallery}>
 
                     {movies && movies.map((movie, index) => (
 
                         <div key={index}
-                        className={styles.carousel_item}
+                        className={styles.gallery_item}
                         ref={(movie) => refs.current[index] = movie}
                         style={{backgroundImage: `URL(${movie.photo_path})`}}>
                         </div>
@@ -168,7 +199,7 @@ const Home = () => {
 
                 </section>
 
-                <div className={styles.carousel_blocker} ref={carouselBlockerRef}></div>
+                <div className={styles.gallery_blocker} ref={galleryBlockerRef}></div>
 
                 <button onClick={prevImage} className={styles.prevBtn}>
                     <GrPrevious />
@@ -200,6 +231,55 @@ const Home = () => {
                 <h4> {movies[currentIndex].curious_title} </h4>
                 <p> {movies[currentIndex].curious_text} </p>
             </div>
+
+            <section className={styles.home_carousel_buttons}>
+                <button onClick={() => fetchCarouselGenre(28)}> Action 28 </button>
+                <button onClick={() => fetchCarouselGenre(12)}> Adventure 12 </button>
+                <button onClick={() => fetchCarouselGenre(16)}> Animation 16 </button>
+                <button onClick={() => fetchCarouselGenre(35)}> Comedy 35 </button>
+                <button onClick={() => fetchCarouselGenre(80)}> Crime 80 </button>
+                <button onClick={() => fetchCarouselGenre(99)}> Documentary 99 </button>
+                <button onClick={() => fetchCarouselGenre(18)}> Drama 18 </button>
+                <button onClick={() => fetchCarouselGenre(14)}> Fantasy 14 </button>
+                <button onClick={() => fetchCarouselGenre(27)}> Horror 27 </button>
+                <button onClick={() => fetchCarouselGenre(10749)}> Romance 10749 </button>
+                <button onClick={() => fetchCarouselGenre(10752)}> War 10752 </button>
+            </section>
+
+            <section className={styles.home_carousel_container}>
+
+                <button className={styles.home_carousel_button_prev} ref={carouselPrevBtn}>
+                    <GrPrevious/>
+                </button>
+                <button className={styles.home_carousel_button_next} ref={carouselNextBtn}>
+                    <GrNext/>
+                </button>
+
+                <div className={styles.home_carousel} ref={carouselRef}>
+
+                    {carouselGenreList.length === 0 ?
+                    ( <div className={styles.home_loading}> Loading ... </div>)
+                    :
+                    (
+                        carouselGenreList.map((item) => (
+
+                            <div key={item.id} className={styles.home_carousel_item}>
+
+                                <img
+                                    src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                                    alt={item.title}
+                                    className={styles.home_carousel_item_img}
+                                />
+
+                            </div>
+
+                        ))                            
+                    ) 
+                    }
+
+                </div>
+                
+            </section>
             
         </>
     )
