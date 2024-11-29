@@ -162,15 +162,49 @@ const Home = () => {
     const carouselNextBtn = useRef()
 
     useEffect(() => {
-        carouselPrevBtn.current.addEventListener('click', () => {
-            let valueToScroll = carouselRef.current.clientWidth
-            carouselRef.current.scrollBy({top:0, left: -valueToScroll, behavior: 'smooth'})
-        })
-        carouselNextBtn.current.addEventListener('click', () => {
-            let valueToScroll = carouselRef.current.clientWidth
-            carouselRef.current.scrollBy({top:0, left: valueToScroll, behavior: 'smooth'})
-        })
-    }, [])
+
+        const disableAndEnableButtons = () => {
+            carouselPrevBtn.current.disabled = true
+            carouselNextBtn.current.disabled = true
+            setTimeout(() => {
+                carouselPrevBtn.current.disabled = false
+                carouselNextBtn.current.disabled = false
+            }, 700)
+        }
+
+        const prevBtnClickHandler = () => {
+          let valueToScroll = carouselRef.current.clientWidth;
+          if(carouselRef.current.scrollLeft === 0) {
+            carouselRef.current.scrollBy({ top: 0, left: carouselRef.current.scrollWidth, behavior: 'smooth' });
+            return
+          }
+          carouselRef.current.scrollBy({ top: 0, left: -valueToScroll, behavior: 'smooth' });
+          disableAndEnableButtons()
+        };
+        
+        const nextBtnClickHandler = () => {
+          let valueToScroll = carouselRef.current.clientWidth;
+          if(carouselRef.current.scrollLeft + carouselRef.current.clientWidth >= carouselRef.current.scrollWidth) {
+            carouselRef.current.scrollBy({ top: 0, left: -carouselRef.current.scrollWidth, behavior: 'smooth' });
+            return
+          }
+          carouselRef.current.scrollBy({ top: 0, left: valueToScroll, behavior: 'smooth' });
+          disableAndEnableButtons()
+        };
+
+        carouselPrevBtn.current.addEventListener('click', prevBtnClickHandler);
+        carouselNextBtn.current.addEventListener('click', nextBtnClickHandler);
+    
+        return () => {
+          carouselPrevBtn.current.removeEventListener('click', prevBtnClickHandler);
+          carouselNextBtn.current.removeEventListener('click', nextBtnClickHandler);
+        };
+      }, [])
+
+      useEffect(() => {
+        let arr = [28,12,16,35,80,99,18,14,27,10749,10752]
+        fetchCarouselGenre(arr[Math.floor(Math.random()*arr.length)])
+      }, [])
 
     return (
 
@@ -233,25 +267,26 @@ const Home = () => {
             </div>
 
             <section className={styles.home_carousel_buttons}>
-                <button onClick={() => fetchCarouselGenre(28)}> Action 28 </button>
-                <button onClick={() => fetchCarouselGenre(12)}> Adventure 12 </button>
-                <button onClick={() => fetchCarouselGenre(16)}> Animation 16 </button>
-                <button onClick={() => fetchCarouselGenre(35)}> Comedy 35 </button>
-                <button onClick={() => fetchCarouselGenre(80)}> Crime 80 </button>
-                <button onClick={() => fetchCarouselGenre(99)}> Documentary 99 </button>
-                <button onClick={() => fetchCarouselGenre(18)}> Drama 18 </button>
-                <button onClick={() => fetchCarouselGenre(14)}> Fantasy 14 </button>
-                <button onClick={() => fetchCarouselGenre(27)}> Horror 27 </button>
-                <button onClick={() => fetchCarouselGenre(10749)}> Romance 10749 </button>
-                <button onClick={() => fetchCarouselGenre(10752)}> War 10752 </button>
+                <button onClick={() => fetchCarouselGenre(28)}> Action </button>
+                <button onClick={() => fetchCarouselGenre(12)}> Adventure </button>
+                <button onClick={() => fetchCarouselGenre(16)}> Animation </button>
+                <button onClick={() => fetchCarouselGenre(35)}> Comedy </button>
+                <button onClick={() => fetchCarouselGenre(80)}> Crime </button>
+                <button onClick={() => fetchCarouselGenre(99)}> Documentary </button>
+                <button onClick={() => fetchCarouselGenre(18)}> Drama </button>
+                <button onClick={() => fetchCarouselGenre(14)}> Fantasy </button>
+                <button onClick={() => fetchCarouselGenre(27)}> Horror </button>
+                <button onClick={() => fetchCarouselGenre(10749)}> Romance </button>
+                <button onClick={() => fetchCarouselGenre(10752)}> War </button>
+                <h2> choose a genre above </h2>
             </section>
 
             <section className={styles.home_carousel_container}>
 
-                <button className={styles.home_carousel_button_prev} ref={carouselPrevBtn}>
+                <button className={`${styles.prevBtn} ${styles.home_carousel_prev_btn}`} ref={carouselPrevBtn}>
                     <GrPrevious/>
                 </button>
-                <button className={styles.home_carousel_button_next} ref={carouselNextBtn}>
+                <button className={`${styles.nextBtn} ${styles.home_carousel_next_btn}`} ref={carouselNextBtn}>
                     <GrNext/>
                 </button>
 

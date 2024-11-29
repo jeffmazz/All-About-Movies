@@ -154,11 +154,9 @@
     color: gold;
 }
 
-
 .home_carousel_buttons {
-    background-color: pink;
     width: 50vw;
-    margin: 0 auto;
+    margin: 10px auto auto auto;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -167,14 +165,23 @@
     gap: 20px;
 }
 
+.home_carousel_buttons h2 {
+    flex: 0 0 100%;
+    text-align: center;
+}
+
 .home_carousel_buttons button {
     height: 50px;
     width: 120px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .home_carousel_container {
     height: 60vh;
-    margin: 50px 0;
+    margin: 10px 0 50px 0;
     padding: 10px 0;
     position: relative;
 }
@@ -212,28 +219,14 @@
     transform: scale(1.1);
 }
 
-.home_carousel_container button {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    z-index: 1;
-
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: #FFF;
-
-    font-size: 15pt;
-
-    cursor: pointer;
-}
-
-.home_carousel_button_prev {
+.home_carousel_prev_btn {
     left: 15px;
+    z-index: 1;
 }
 
-.home_carousel_button_next {
+.home_carousel_next_btn {
     right: 15px;
+    z-index: 1;
 }
 
 /* Reponsividade */
@@ -306,9 +299,9 @@
         font-size: 10pt;
     }
 
-    .carousel,
-    .carousel_item,
-    .carousel_blocker {
+    .gallery,
+    .gallery_item,
+    .gallery_blocker {
         display: none;
     }
 
@@ -356,15 +349,15 @@
         font-size: 10pt;
     }
 
-    .carousel {
+    .gallery {
         gap: 15px;
         top: 70%;
     }
-    .carousel_item {
+    .gallery_item {
         width: 23%;
         height: 70px;
     }
-    .carousel_blocker {
+    .gallery_blocker {
         top: 65%;
     }
 
@@ -395,10 +388,10 @@
         padding: 20px;
     }
 
-    .carousel {
+    .gallery {
         top: 70%;
     }
-    .carousel_blocker {
+    .gallery_blocker {
         top: 65%;
     }
 
