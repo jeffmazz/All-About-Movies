@@ -172,6 +172,7 @@ const Home = () => {
         }
 
         const prevBtnClickHandler = () => {
+
           let valueToScroll = carouselRef.current.clientWidth;
           if(carouselRef.current.scrollLeft === 0) {
             carouselRef.current.scrollBy({ top: 0, left: carouselRef.current.scrollWidth, behavior: 'smooth' });
@@ -179,7 +180,7 @@ const Home = () => {
           }
           carouselRef.current.scrollBy({ top: 0, left: -valueToScroll, behavior: 'smooth' });
           disableAndEnableButtons()
-        };
+        }
         
         const nextBtnClickHandler = () => {
           let valueToScroll = carouselRef.current.clientWidth;
@@ -189,15 +190,20 @@ const Home = () => {
           }
           carouselRef.current.scrollBy({ top: 0, left: valueToScroll, behavior: 'smooth' });
           disableAndEnableButtons()
+        }
+
+        if (carouselPrevBtn.current && carouselNextBtn.current) {
+            carouselPrevBtn.current.addEventListener('click', prevBtnClickHandler);
+            carouselNextBtn.current.addEventListener('click', nextBtnClickHandler);
+        }
+        
+        return () => {
+          if (carouselPrevBtn.current && carouselNextBtn.current) {
+            carouselPrevBtn.current.removeEventListener('click', prevBtnClickHandler);
+            carouselNextBtn.current.removeEventListener('click', nextBtnClickHandler);
+          }
         };
 
-        carouselPrevBtn.current.addEventListener('click', prevBtnClickHandler);
-        carouselNextBtn.current.addEventListener('click', nextBtnClickHandler);
-    
-        return () => {
-          carouselPrevBtn.current.removeEventListener('click', prevBtnClickHandler);
-          carouselNextBtn.current.removeEventListener('click', nextBtnClickHandler);
-        };
       }, [])
 
       useEffect(() => {
