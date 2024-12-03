@@ -238,19 +238,19 @@
     }
 
     .infos {
-        width: 40%;
+        width: 45%;
         gap: 5px;
     }
     .infos h3 {
         font-size: 11pt;
     }
     .infos p {
-        font-size: 9pt;
+        font-size: 8pt;
     }
 
-    .carousel,
-    .carousel_item,
-    .carousel_blocker {
+    .gallery,
+    .gallery_item,
+    .gallery_blocker {
         display: none;
     }
 
@@ -278,6 +278,34 @@
     
     .extra {
         width: 100%;
+    }
+
+    .home_carousel_buttons {
+        width: 90vw;
+        gap: 10px;
+    }
+    
+    .home_carousel_buttons button {
+        height: 30px;
+        width: 80px;
+        font-size: 9pt;
+    }
+    
+    .home_carousel_container {
+        height: 40vh;
+    }
+    
+    .home_carousel_item {
+        height: 80%;
+        flex: 1 0 50%;
+    }
+    
+    .home_carousel_prev_btn {
+        left: 5px;
+    }
+    
+    .home_carousel_next_btn {
+        right: 5px;
     }
 
 }
@@ -330,6 +358,35 @@
     .extra {
         width: 100%;
     }
+
+    .home_carousel_buttons {
+        width: 90vw;
+        gap: 15px;
+    }
+    
+    .home_carousel_buttons button {
+        height: 40px;
+        width: 95px;
+        font-size: 10pt;
+    }
+    
+    .home_carousel_container {
+        height: 45vh;
+    }
+    
+    .home_carousel_item {
+        height: 85%;
+        flex: 1 0 50%;
+    }
+    
+    .home_carousel_prev_btn {
+        left: 5px;
+    }
+    
+    .home_carousel_next_btn {
+        right: 5px;
+    }
+
 }
 
 @media (min-width: 481px) and (max-width: 650px) {
@@ -380,6 +437,35 @@
     .extra {
         width: 100%;
     }
+
+    .home_carousel_buttons {
+        width: 95vw;
+        gap: 15px;
+    }
+    
+    .home_carousel_buttons button {
+        height: 43px;
+        width: 110px;
+        font-size: 11pt;
+    }
+    
+    .home_carousel_container {
+        height: 50vh;
+    }
+    
+    .home_carousel_item {
+        height: 95%;
+        flex: 1 0 50%;
+    }
+    
+    .home_carousel_prev_btn {
+        left: 5px;
+    }
+    
+    .home_carousel_next_btn {
+        right: 5px;
+    }
+    
 }
 
 @media (min-width: 651px) and (max-width: 800px) {
@@ -402,4 +488,71 @@
     .extra {
         width: 100%;
     }
+
+    .home_carousel_buttons {
+        width: 80vw;
+        gap: 15px;
+    }
+    
+    .home_carousel_container {
+        height: 50vh;
+    }
+    
+    .home_carousel_item {
+        height: 95%;
+        flex: 1 0 50%;
+    }
+    
+    .home_carousel_prev_btn {
+        left: 10px;
+    }
+    
+    .home_carousel_next_btn {
+        right: 10px;
+    }
+
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+
+    .home_carousel_buttons {
+        width: 70vw;
+        gap: 20px;
+    }
+    
+    .home_carousel_container {
+        height: 50vh;
+    }
+    
+    .home_carousel_item {
+        height: 90%;
+        flex: 1 0 25%;
+    }
+    
+    .home_carousel_prev_btn {
+        left: 15px;
+    }
+    
+    .home_carousel_next_btn {
+        right: 15px;
+    }
+
+}
+
+@media (min-width: 1001px) and (max-width: 1300px) {
+
+    .home_carousel_buttons {
+        width: 65vw;
+        gap: 20px;
+    }
+    
+    .home_carousel_container {
+        height: 60vh;
+    }
+    
+    .home_carousel_item {
+        height: 95%;
+        flex: 1 0 25%;
+    }
+
 }

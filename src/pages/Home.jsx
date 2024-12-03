@@ -147,11 +147,10 @@ const Home = () => {
     const [carouselGenreList, setCarouselGenreList] = useState([])
 
     const fetchCarouselGenre = async (id) => {
-        const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${id}`, options)
+        const response = await fetch(`https://all-about-movies-c5c6a89a6500.herokuapp.com/genre/${id}`)
         const res = await response.json()
         if(res.results) {
             setCarouselGenreList(res.results)
-            console.log(res.results)
         } else {
             setCarouselGenreList(null)
         }
