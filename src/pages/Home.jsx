@@ -272,17 +272,17 @@ const Home = () => {
             </div>
 
             <section className={styles.home_carousel_buttons}>
-                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Ação.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(28)}> Action </button>
-                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Aventura.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(12)}> Adventure </button>
-                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Animação.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(16)}> Animation </button>
-                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Comédia.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(35)}> Comedy </button>
-                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Crime.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(80)}> Crime </button>
-                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Documentario.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(99)}> Documentary </button>
-                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Drama.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(18)}> Drama </button>
-                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Fantasia.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(14)}> Fantasy </button>
-                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Terror.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(27)}> Horror </button>
-                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Romance.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(10749)}> Romance </button>
-                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Guerra.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(10752)}> War </button>
+                <button style={{backgroundImage: `URL(/Ação.png)`}} onClick={() => fetchCarouselGenre(28)}> Action </button>
+                <button style={{backgroundImage: `URL(/Aventura.png)`}} onClick={() => fetchCarouselGenre(12)}> Adventure </button>
+                <button style={{backgroundImage: `URL(/Animação.png)`}} onClick={() => fetchCarouselGenre(16)}> Animation </button>
+                <button style={{backgroundImage: `URL(/Comédia.png)`}} onClick={() => fetchCarouselGenre(35)}> Comedy </button>
+                <button style={{backgroundImage: `URL(/Crime.png)`}} onClick={() => fetchCarouselGenre(80)}> Crime </button>
+                <button style={{backgroundImage: `URL(/Documentario.png)`}} onClick={() => fetchCarouselGenre(99)}> Documentary </button>
+                <button style={{backgroundImage: `URL(/Drama.png)`}} onClick={() => fetchCarouselGenre(18)}> Drama </button>
+                <button style={{backgroundImage: `URL(/Fantasia.png)`}} onClick={() => fetchCarouselGenre(14)}> Fantasy </button>
+                <button style={{backgroundImage: `URL(/Terror.png)`}} onClick={() => fetchCarouselGenre(27)}> Horror </button>
+                <button style={{backgroundImage: `URL(/Romance.png)`}} onClick={() => fetchCarouselGenre(10749)}> Romance </button>
+                <button style={{backgroundImage: `URL(/Guerra.png)`}} onClick={() => fetchCarouselGenre(10752)}> War </button>
                 <h2> choose a genre above </h2>
             </section>
 
