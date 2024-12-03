@@ -272,17 +272,17 @@ const Home = () => {
             </div>
 
             <section className={styles.home_carousel_buttons}>
-                <button onClick={() => fetchCarouselGenre(28)}> Action </button>
-                <button onClick={() => fetchCarouselGenre(12)}> Adventure </button>
-                <button onClick={() => fetchCarouselGenre(16)}> Animation </button>
-                <button onClick={() => fetchCarouselGenre(35)}> Comedy </button>
-                <button onClick={() => fetchCarouselGenre(80)}> Crime </button>
-                <button onClick={() => fetchCarouselGenre(99)}> Documentary </button>
-                <button onClick={() => fetchCarouselGenre(18)}> Drama </button>
-                <button onClick={() => fetchCarouselGenre(14)}> Fantasy </button>
-                <button onClick={() => fetchCarouselGenre(27)}> Horror </button>
-                <button onClick={() => fetchCarouselGenre(10749)}> Romance </button>
-                <button onClick={() => fetchCarouselGenre(10752)}> War </button>
+                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Ação.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(28)}> Action </button>
+                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Aventura.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(12)}> Adventure </button>
+                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Animação.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(16)}> Animation </button>
+                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Comédia.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(35)}> Comedy </button>
+                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Crime.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(80)}> Crime </button>
+                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Documentario.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(99)}> Documentary </button>
+                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Drama.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(18)}> Drama </button>
+                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Fantasia.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(14)}> Fantasy </button>
+                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Terror.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(27)}> Horror </button>
+                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Romance.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(10749)}> Romance </button>
+                <button style={{backgroundColor: '#FFF', backgroundImage: `URL(/Guerra.png)`, color: '#FFF', textShadow: '2px 2px rgba(0,0,0,.5)', fontWeight: 'bold'}} onClick={() => fetchCarouselGenre(10752)}> War </button>
                 <h2> choose a genre above </h2>
             </section>
 
