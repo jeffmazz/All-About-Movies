@@ -17,7 +17,8 @@ const TopMovies = () => {
             try {
                 const response = await fetch('https://all-about-movies-c5c6a89a6500.herokuapp.com/movies/top')
                 const res = await response.json()
-                setTopMovies(res.results)
+                console.log(res)
+                setTopMovies(res)
             } catch(err) {
                 console.log(err)
             }

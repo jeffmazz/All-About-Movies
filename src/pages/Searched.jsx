@@ -28,7 +28,7 @@ const Searched = () => {
                     body: JSON.stringify({query})
                 })
                 const res = await response.json()
-                setSearchedResults(res.results)
+                setSearchedResults(res)
             } catch(err) {
                 console.log(err)
             }

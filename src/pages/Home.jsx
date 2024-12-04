@@ -149,8 +149,8 @@ const Home = () => {
     const fetchCarouselGenre = async (id) => {
         const response = await fetch(`https://all-about-movies-c5c6a89a6500.herokuapp.com/genre/${id}`)
         const res = await response.json()
-        if(res.results) {
-            setCarouselGenreList(res.results)
+        if(res) {
+            setCarouselGenreList(res)
         } else {
             setCarouselGenreList(null)
         }

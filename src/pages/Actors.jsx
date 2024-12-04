@@ -16,15 +16,15 @@ const Actors = () => {
             try {
                 const response = await fetch('https://all-about-movies-c5c6a89a6500.herokuapp.com/actors')
                 const res = await response.json()
-                setActors(res.results)
+                setActors(res)
             } catch(err) {
                 console.log(err)
             }
             
             if(response.ok) {
                 const res = await response.json()
-                setActors(res.results)
-                console.log(res.results)
+                setActors(res)
+                console.log(res)
             }
         }
 
