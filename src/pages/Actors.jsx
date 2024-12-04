@@ -1,10 +1,7 @@
-// React
 import {useContext, useEffect, useState} from "react"
 
-// Context
 import { ApiKeyContext } from "../context/ApiKeyContext"
 
-// Components
 import CardList from "../components/CardList"
 
 const Actors = () => {

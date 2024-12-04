@@ -104,7 +104,7 @@ const Home = () => {
 
         return () => {
             refs.current.forEach((ref) => {
-                if(ref && ref.listener) {
+                if(ref?.listener) {
                     ref.removeEventListener('mouseover', ref.listener)
                     ref.listener = null
                 }

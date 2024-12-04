@@ -1,13 +1,9 @@
-// react router dom
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-// css
 import './App.css'
 
-// components
 import Navbar from './components/Navbar'
 
-// pages
 import Home from './pages/Home'
 import TopMovies from './pages/TopMovies'
 import PopularMovies from './pages/PopularMovies'
@@ -15,7 +11,6 @@ import TopSeries from './pages/TopSeries'
 import PopularSeries from './pages/PopularSeries'
 import Searched from './pages/Searched'
 
-// context
 import { ApiKeyContext, ApiKeyProvider } from './context/ApiKeyContext'
 import Actors from './pages/Actors'
 

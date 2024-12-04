@@ -1,13 +1,9 @@
-// Hooks
 import { useState, useEffect, useContext } from "react";
 
-// React Router Dom
 import { useSearchParams } from "react-router-dom";
 
-// Components
 import CardList from "../components/CardList";
 
-// Context
 import { ApiKeyContext } from "../context/ApiKeyContext";
 
 const Searched = () => {

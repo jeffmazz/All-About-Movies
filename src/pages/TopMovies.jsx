@@ -1,10 +1,7 @@
-// Hooks
 import { useState, useEffect, useContext } from "react"
 
-// Components
 import CardList from "../components/CardList"
 
-// Context
 import { ApiKeyContext } from "../context/ApiKeyContext"
 
 const TopMovies = () => {
