@@ -20,12 +20,7 @@ const Actors = () => {
             } catch(err) {
                 console.log(err)
             }
-            
-            if(response.ok) {
-                const res = await response.json()
-                setActors(res)
-                console.log(res)
-            }
+        
         }
 
         getActors()
