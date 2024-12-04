@@ -87,6 +87,8 @@ body {
 
 .card_known_for_title {
     color: #616161;
+    display: flex;
+    gap: 5px;
 
 }
 .card_known_for_title:nth-child(1) {
