@@ -147,13 +147,20 @@ const Home = () => {
     const [carouselGenreList, setCarouselGenreList] = useState([])
 
     const fetchCarouselGenre = async (id) => {
-        const response = await fetch(`https://all-about-movies-c5c6a89a6500.herokuapp.com/genre/${id}`)
-        const res = await response.json()
-        if(res) {
-            setCarouselGenreList(res)
-        } else {
-            setCarouselGenreList(null)
+        const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${id}`, options)
+        if(!response.ok) {
+            setCarouselGenreList('Failed to fetch data from API')
+            return
         }
+        const data = await response.json()
+        const originalArray = data.results
+        const filteredArray = originalArray.map(item => ({
+            id: item.id,
+            poster_path: item.poster_path
+        }))
+        setCarouselGenreList(filteredArray)
+
+        carouselRef.current.scrollTo({top: 0, left: 0, behavior: 'instant'})
     }
 
     const carouselRef = useRef()
@@ -297,24 +304,20 @@ const Home = () => {
 
                 <div className={styles.home_carousel} ref={carouselRef}>
 
-                    {carouselGenreList.length === 0 ?
-                    ( <div className={styles.home_loading}> Loading ... </div>)
-                    :
-                    (
+                    {Array.isArray(carouselGenreList) ?
+                        
                         carouselGenreList.map((item) => (
-
                             <div key={item.id} className={styles.home_carousel_item}>
-
                                 <img
                                     src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                                     alt={item.title}
                                     className={styles.home_carousel_item_img}
                                 />
-
                             </div>
-
-                        ))                            
-                    ) 
+                        ))
+                        :
+                        <p className="failedFetch"> {carouselGenreList} </p>
+                    
                     }
 
                 </div>

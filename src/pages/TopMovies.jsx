@@ -6,7 +6,7 @@ import { ApiKeyContext } from "../context/ApiKeyContext"
 
 const TopMovies = () => {
   
-    const {apiKey, options} = useContext(ApiKeyContext)
+    const {apiKey, options, fetchData} = useContext(ApiKeyContext)
 
     const [topMovies, setTopMovies] = useState([])
 
@@ -14,13 +14,9 @@ const TopMovies = () => {
 
         const getTopMovies = async() => {
 
-            try {
-                const response = await fetch('https://all-about-movies-c5c6a89a6500.herokuapp.com/movies/top')
-                const res = await response.json()
-                setTopMovies(res)
-            } catch(err) {
-                console.log(err)
-            }
+            const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1'
+            const data = await fetchData(url)
+            setTopMovies(data)
             
         }
 
@@ -33,7 +29,11 @@ const TopMovies = () => {
 
             <h2 className="title"> Top Movies </h2>
 
-            <CardList data={topMovies} />
+            { Array.isArray(topMovies) ?
+                <CardList data={topMovies} />
+                :
+                <p className="failedFetch"> {topMovies} </p>
+            }
             
         </>
     )

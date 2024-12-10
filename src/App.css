@@ -108,6 +108,10 @@ body {
     color: gold;
 }
 
+.failedFetch {
+    text-align: center;
+}
+
 /* Media Queries */
 
 @media (min-width: 320px) and (max-width: 375px) {

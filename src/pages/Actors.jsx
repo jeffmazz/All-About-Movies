@@ -6,21 +6,16 @@ import CardList from "../components/CardList"
 
 const Actors = () => {
 
-    const {apiKey, options} = useContext(ApiKeyContext)
+    const {apiKey, options, fetchData} = useContext(ApiKeyContext)
 
     const [actors, setActors] = useState([])
 
     useEffect(() => {
 
         const getActors = async() => {
-            try {
-                const response = await fetch('https://all-about-movies-c5c6a89a6500.herokuapp.com/actors')
-                const res = await response.json()
-                setActors(res)
-            } catch(err) {
-                console.log(err)
-            }
-        
+            const url = 'https://api.themoviedb.org/3/person/popular?language=en-US&page=1'
+            const data = await fetchData(url)
+            setActors(data)
         }
 
         getActors()
@@ -32,7 +27,11 @@ const Actors = () => {
 
         <h2 className="title"> Actors </h2>
 
-        <CardList data={actors}/>
+        {Array.isArray(actors) ? 
+            <CardList data={actors}/>
+            :
+            <p className="failedFetch"> {actors} </p>
+        }
 
     </>
   )

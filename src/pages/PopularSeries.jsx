@@ -6,7 +6,7 @@ import { ApiKeyContext } from "../context/ApiKeyContext"
 
 const PopularSeries = () => {
   
-    const {apiKey, options} = useContext(ApiKeyContext)
+    const {apiKey, options, fetchData} = useContext(ApiKeyContext)
 
     const [popularSeries, setPopularSeries] = useState([])
 
@@ -14,13 +14,9 @@ const PopularSeries = () => {
 
         const getPopularSeries = async() => {
 
-            try {
-                const response = await fetch('https://all-about-movies-c5c6a89a6500.herokuapp.com/series/popular')
-                const res = await response.json()
-                setPopularSeries(res)
-            } catch(err) {
-                console.log(err)
-            }
+           const url = 'https://api.themoviedb.org/3/tv/popular?language=en-US&page=1'
+           const data = await fetchData(url)
+           setPopularSeries(data)
             
         }
 
@@ -33,7 +29,11 @@ const PopularSeries = () => {
 
             <h2 className="title"> Popular Series </h2>
             
-            <CardList data={popularSeries}/>
+            {Array.isArray(popularSeries) ?
+                <CardList data={popularSeries}/>
+                :
+                <p className="failedFetch"> {popularSeries} </p>
+            }
 
         </>
     )

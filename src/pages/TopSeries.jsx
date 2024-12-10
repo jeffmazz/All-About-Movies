@@ -6,7 +6,7 @@ import { ApiKeyContext } from "../context/ApiKeyContext"
 
 const TopSeries = () => {
 
-    const {apiKey, options} = useContext(ApiKeyContext)
+    const {apiKey, options, fetchData} = useContext(ApiKeyContext)
 
     const [topSeries, setTopSeries] = useState([])
 
@@ -14,13 +14,9 @@ const TopSeries = () => {
 
         const getTopSeries = async() => {
 
-            try {
-                const response = await fetch('https://all-about-movies-c5c6a89a6500.herokuapp.com/series/top')
-                const res = await response.json()
-                setTopSeries(res)
-            } catch(err) {
-                console.log(err)
-            }
+                const url = 'https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1'
+                const data = await fetchData(url)
+                setTopSeries(data)
             
         }
 
@@ -33,7 +29,11 @@ const TopSeries = () => {
 
             <h2 className="title"> Top Series </h2>
 
-            <CardList data={topSeries} />
+            {Array.isArray(topSeries) ?
+                <CardList data={topSeries} />
+                :
+                <p className="failedFetch"> {topSeries} </p>
+            }
 
         </>
     )
