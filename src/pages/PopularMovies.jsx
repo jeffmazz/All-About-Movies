@@ -12,7 +12,7 @@ const PopularMovies = () => {
 
     useEffect(() => {
         const getPopularMovies = async() => {
-            const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
+            const url = 'https://all-about-movies-backend.vercel.app/api/popular-movies.js'
             const data = await fetchData(url)
             setPopularMovies(data)
         }

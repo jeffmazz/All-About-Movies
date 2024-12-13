@@ -19,7 +19,7 @@ const Searched = () => {
 
         const getSearchedResults = async() => {
 
-            const url = `https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`
+            const url = `https://all-about-movies-backend.vercel.app/api/searched.js?q=${query}`
             const data = await fetchData(url)
             setSearchedResults(data)
             

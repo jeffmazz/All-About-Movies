@@ -10,7 +10,7 @@ import { ApiKeyContext } from "../context/ApiKeyContext";
 
 const Home = () => {
 
-    const {apiKey, options} = useContext(ApiKeyContext)
+    const {apiKey, options, fetchData} = useContext(ApiKeyContext)
 
     const refs = useRef([])
     const overlayRef = useRef(null)
@@ -147,19 +147,9 @@ const Home = () => {
     const [carouselGenreList, setCarouselGenreList] = useState([])
 
     const fetchCarouselGenre = async (id) => {
-        const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${id}`, options)
-        if(!response.ok) {
-            setCarouselGenreList('Failed to fetch data from API')
-            return
-        }
-        const data = await response.json()
-        const originalArray = data.results
-        const filteredArray = originalArray.map(item => ({
-            id: item.id,
-            poster_path: item.poster_path
-        }))
-        setCarouselGenreList(filteredArray)
-
+        const url = `https://all-about-movies-backend.vercel.app/api/genres.js?id=${id}`
+        const data = await fetchData(url)
+        setCarouselGenreList(data)
         carouselRef.current.scrollTo({top: 0, left: 0, behavior: 'instant'})
     }
 

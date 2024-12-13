@@ -14,7 +14,7 @@ const TopSeries = () => {
 
         const getTopSeries = async() => {
 
-                const url = 'https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1'
+                const url = 'https://all-about-movies-backend.vercel.app/api/top-series.js'
                 const data = await fetchData(url)
                 setTopSeries(data)
             

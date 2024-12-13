@@ -14,7 +14,7 @@ const PopularSeries = () => {
 
         const getPopularSeries = async() => {
 
-           const url = 'https://api.themoviedb.org/3/tv/popular?language=en-US&page=1'
+           const url = 'https://all-about-movies-backend.vercel.app/api/popular-series.js'
            const data = await fetchData(url)
            setPopularSeries(data)
             
