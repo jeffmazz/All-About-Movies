@@ -21,7 +21,7 @@ const Searched = () => {
 
             const url = `https://all-about-movies-backend.vercel.app/api/searched.js?q=${query}`
             const data = await fetchData(url)
-            setSearchedResults(data)
+            setSearchedResults(data.results)
             
         }
 

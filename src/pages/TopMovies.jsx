@@ -16,7 +16,7 @@ const TopMovies = () => {
 
             const url = 'https://all-about-movies-backend.vercel.app/api/top-movies.js'
             const data = await fetchData(url)
-            setTopMovies(data)
+            setTopMovies(data.results)
             
         }
 

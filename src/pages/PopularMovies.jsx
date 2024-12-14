@@ -14,7 +14,7 @@ const PopularMovies = () => {
         const getPopularMovies = async() => {
             const url = 'https://all-about-movies-backend.vercel.app/api/popular-movies.js'
             const data = await fetchData(url)
-            setPopularMovies(data)
+            setPopularMovies(data.results)
         }
         getPopularMovies()
     }, [])
