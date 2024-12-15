@@ -9,7 +9,9 @@ const Actors = () => {
 
     const [actors, setActors] = useState([])
     const [totalPages, setTotalPages] = useState(1)
-    const [actualPage, setActualPage] = useState(1)
+    const [actualPage, setActualPage] = useState(
+        Number(sessionStorage.getItem("currentPage")) || 1
+    )
 
     useEffect(() => {
 
@@ -17,11 +19,14 @@ const Actors = () => {
             const response = await fetch(`https://all-about-movies-backend.vercel.app/api/actors.js?pageNumber=${actualPage}`)
             const data = await response.json()
             setActors(data.results)
-            setTotalPages(50)
-            // total pages bugado!
+            setTotalPages(100)
         }
 
         getActors()
+
+        sessionStorage.setItem("currentPage", actualPage)
+
+        window.scrollTo({top:0, behavior:"smooth"})
 
     }, [actualPage])
 
@@ -30,13 +35,13 @@ const Actors = () => {
 
         <h2 className="title"> Actors </h2>
 
-        <Pagination totalPages={totalPages} setActualPage={setActualPage}/>
-
         {Array.isArray(actors) ? 
             <CardList data={actors}/>
             :
             <p className="failedFetch"> {actors} </p>
         }
+
+        <Pagination totalPages={totalPages} actualPage={actualPage} setActualPage={setActualPage}/>
 
     </>
   )

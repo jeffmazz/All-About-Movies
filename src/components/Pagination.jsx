@@ -1,57 +1,42 @@
-import { useEffect, useState } from "react";
+import React from "react"
+import styles from "./Pagination.module.css"
 
-const Pagination = ({ totalPages, setActualPage }) => {
-    const [actualPage, setActualPageState] = useState(1);
+import { GrCaretNext } from "react-icons/gr";
+import { GrChapterNext } from "react-icons/gr";
 
-    useEffect(() => {
-        setActualPage(actualPage);
-    }, [actualPage, setActualPage]);
+import { GrCaretPrevious } from "react-icons/gr";
+import { GrChapterPrevious } from "react-icons/gr";
 
-    const goToPrevPage = () => {
-        setActualPageState(prevValue => prevValue - 1);
-    };
 
-    const goToNextPage = () => {
-        setActualPageState(prevValue => prevValue + 1);
-    };
+const Pagination = ({ totalPages, actualPage, setActualPage }) => {
 
-    const goToPage = (number) => {
-        setActualPageState(number);
-    };
+    const goToPage = (page) => {
+        setActualPage(page);
+    }
 
     return (
-        <div className="pagination-container">
-            <button onClick={goToPrevPage} disabled={actualPage === 1}>
-                prev
-            </button>
+        <div className={styles.pagination_container}>
 
-            {actualPage > 2 && (
-                <div>
-                    <span>...</span>
-                    <button onClick={() => goToPage(1)}>1</button>
-                </div>
-            )}
+            <button onClick={() => goToPage(1)} disabled={actualPage === 1}>
+                <GrChapterPrevious/>
+            </button>
 
             <button onClick={() => goToPage(actualPage - 1)} disabled={actualPage === 1}>
-                {actualPage - 1}
+                <GrCaretPrevious/>
             </button>
-            <button className="active" disabled>
+
+            <button className={styles.actualPage}>
                 {actualPage}
             </button>
+            
             <button onClick={() => goToPage(actualPage + 1)} disabled={actualPage === totalPages}>
-                {actualPage + 1}
+                <GrCaretNext/>
             </button>
 
-            {actualPage < totalPages - 2 && (
-                <div>
-                    <span>...</span>
-                    <button onClick={() => goToPage(totalPages)}> {totalPages} </button>
-                </div>
-            )}
-
-            <button onClick={goToNextPage} disabled={actualPage === totalPages}>
-                next
+            <button onClick={() => goToPage(totalPages)} disabled={actualPage === totalPages}>
+                <GrChapterNext/>
             </button>
+
         </div>
     );
 };
