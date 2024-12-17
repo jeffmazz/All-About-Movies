@@ -10,7 +10,7 @@ const TopMovies = () => {
     const {apiKey, options, fetchData} = useContext(ApiKeyContext)
 
     const [topMovies, setTopMovies] = useState([])
-    const [totalPages, setTotalPages] = useState(1)
+    const [totalPages, setTotalPages] = useState()
     const [actualPage, setActualPage] = useState(
         Number(sessionStorage.getItem("currentPage")) || 1
     )
@@ -18,9 +18,12 @@ const TopMovies = () => {
     useEffect(() => {
 
         const getTopMovies = async() => {
-
             const url = `https://all-about-movies-backend.vercel.app/api/top-movies.js?pageNumber=${actualPage}`
             const data = await fetchData(url)
+            if(!data.results) {
+                setTopMovies("Failed to fetch data")
+                return
+            }
             setTopMovies(data.results)
             setTotalPages(100)
         }
@@ -33,12 +36,16 @@ const TopMovies = () => {
         
     }, [actualPage])
 
+    useEffect(() => {
+        return(sessionStorage.removeItem("currentPage"))
+    })
+
     return (
         <>
 
             <h2 className="title"> Top Movies </h2>
 
-            { Array.isArray(topMovies) ?
+            {Array.isArray(topMovies) ?
                 <CardList data={topMovies} />
                 :
                 <p className="failedFetch"> {topMovies} </p>

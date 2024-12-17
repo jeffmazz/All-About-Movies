@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 
 import CardList from "../components/CardList"
+import Pagination from "../components/Pagination"
 
 import { ApiKeyContext } from "../context/ApiKeyContext"
 
@@ -9,20 +10,36 @@ const TopSeries = () => {
     const {apiKey, options, fetchData} = useContext(ApiKeyContext)
 
     const [topSeries, setTopSeries] = useState([])
+    const [totalPages, setTotalPages] = useState()
+    const [actualPage, setActualPage] = useState(
+        Number(sessionStorage.getItem("currentPage")) || 1
+    )
 
     useEffect(() => {
 
         const getTopSeries = async() => {
-
-                const url = 'https://all-about-movies-backend.vercel.app/api/top-series.js'
-                const data = await fetchData(url)
-                setTopSeries(data.results)
-            
+            const url = `https://all-about-movies-backend.vercel.app/api/top-series.js?pageNumber=${actualPage}`
+            const data = await fetchData(url)
+            if(!data.results) {
+                setTopSeries('Failed to fetch data')
+                return
+            }
+            setTopSeries(data.results)
+            setTotalPages(100)
         }
 
         getTopSeries()
         
-    }, [])
+        sessionStorage.setItem("currentPage", actualPage)
+
+        window.scrollTo({top:0, behavior:"smooth"})
+        
+    }, [actualPage])
+
+    useEffect(() => {
+        return(sessionStorage.removeItem("currentPage"))
+    })
+    
 
     return (
         <>
@@ -34,6 +51,8 @@ const TopSeries = () => {
                 :
                 <p className="failedFetch"> {topSeries} </p>
             }
+
+            <Pagination totalPages={totalPages} actualPage={actualPage} setActualPage={setActualPage} />
 
         </>
     )

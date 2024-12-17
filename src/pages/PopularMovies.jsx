@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext} from "react"
 
 import CardList from "../components/CardList"
+import Pagination from "../components/Pagination"
 
 import { ApiKeyContext } from "../context/ApiKeyContext"
 
@@ -9,15 +10,33 @@ const PopularMovies = () => {
     const {apiKey, options, fetchData} = useContext(ApiKeyContext)
 
     const [popularMovies, setPopularMovies] = useState([])
-
+    const [totalPages, setTotalPages] = useState()
+    const [actualPage, setActualPage] = useState(1)
+    
     useEffect(() => {
+
         const getPopularMovies = async() => {
             const url = 'https://all-about-movies-backend.vercel.app/api/popular-movies.js'
             const data = await fetchData(url)
+            if(!data.results) {
+                setPopularMovies('Failed to fetch data')
+                return
+            }
             setPopularMovies(data.results)
+            setTotalPages(100)
         }
+
         getPopularMovies()
-    }, [])
+
+        sessionStorage.setItem("currentPage", actualPage)
+
+        window.scrollTo({top:0, behavior:"smooth"})
+
+    }, [actualPage])
+
+    useEffect(() => {
+        return(sessionStorage.removeItem("currentPage"))
+    })
 
     return (
         <>
@@ -29,6 +48,8 @@ const PopularMovies = () => {
                 :
                 <p className="failedFetch"> {popularMovies} </p>
             }
+
+            <Pagination totalPages={totalPages} actualPage={actualPage} setActualPage={setActualPage} />
 
         </>
     )

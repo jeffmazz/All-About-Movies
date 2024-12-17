@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import CardList from "../components/CardList";
+import Pagination from "../components/Pagination";
 
 import { ApiKeyContext } from "../context/ApiKeyContext";
 
@@ -14,20 +15,35 @@ const Searched = () => {
     const query = searchParams.get('q')
 
     const [searchedResults, setSearchedResults] = useState([])
+    const [totalPages, setTotalPages] = useState()
+    const [actualPage, setActualPage] = useState(
+        Number(sessionStorage.getItem("currentPage")) || 1
+    )
 
     useEffect(() => {
 
         const getSearchedResults = async() => {
-
-            const url = `https://all-about-movies-backend.vercel.app/api/searched.js?q=${query}`
+            const url = `https://all-about-movies-backend.vercel.app/api/searched.js?q=${query}&pageNumber=${actualPage}`
             const data = await fetchData(url)
+            if(data.results.length === 0) {
+                setSearchedResults('Your search returned no results')
+                return
+            }
             setSearchedResults(data.results)
-            
+            setTotalPages(data.totalPages)
         }
 
         getSearchedResults()
+
+        sessionStorage.setItem("currentPage", actualPage)
+
+        window.scrollTo({top:0, behavior:"smooth"})
         
-    }, [query])
+    }, [query, actualPage])
+
+    useEffect(() => {
+        return(sessionStorage.removeItem("currentPage"))
+    })
 
     return (
         <>
@@ -39,6 +55,8 @@ const Searched = () => {
                 :
                 <p className="failedFetch"> {searchedResults} </p>
             }
+
+            <Pagination totalPages={totalPages} actualPage={actualPage} setActualPage={setActualPage} />
 
         </>
     )

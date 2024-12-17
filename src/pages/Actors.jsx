@@ -18,6 +18,10 @@ const Actors = () => {
         const getActors = async() => {
             const response = await fetch(`https://all-about-movies-backend.vercel.app/api/actors.js?pageNumber=${actualPage}`)
             const data = await response.json()
+            if(!data.results) {
+                setActors("Failed to fetch data")
+                return
+            }
             setActors(data.results)
             setTotalPages(100)
         }
@@ -29,6 +33,10 @@ const Actors = () => {
         window.scrollTo({top:0, behavior:"smooth"})
 
     }, [actualPage])
+
+    useEffect(() => {
+        return(sessionStorage.removeItem("currentPage"))
+    })
 
   return (
     <>
