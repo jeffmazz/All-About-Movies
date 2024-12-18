@@ -285,10 +285,10 @@ const Home = () => {
 
             <section className={styles.home_carousel_container}>
 
-                <button className={`${styles.prevBtn} ${styles.home_carousel_prev_btn}`} ref={carouselPrevBtn}>
+                <button className={`${styles.prevBtn} ${styles.home_carousel_prev_btn}`} ref={carouselPrevBtn} aria-label="scrolls to left on genre list carousel">
                     <GrPrevious/>
                 </button>
-                <button className={`${styles.nextBtn} ${styles.home_carousel_next_btn}`} ref={carouselNextBtn}>
+                <button className={`${styles.nextBtn} ${styles.home_carousel_next_btn}`} ref={carouselNextBtn} aria-label="scrolls to right on genre list carousel">
                     <GrNext/>
                 </button>
 
