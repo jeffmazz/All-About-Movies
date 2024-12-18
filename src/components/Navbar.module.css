@@ -135,6 +135,7 @@
     font-weight: bold;
     color: #FFF;
     cursor: pointer;
+    min-width: 25px;
 }
 
 /* Media Queries */
