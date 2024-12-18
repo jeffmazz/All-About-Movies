@@ -11,7 +11,9 @@ const PopularSeries = () => {
 
     const [popularSeries, setPopularSeries] = useState([])
     const [totalPages, setTotalPages] = useState()
-    const [actualPage, setActualPage] = useState(1)
+    const [actualPage, setActualPage] = useState(
+        sessionStorage.getItem('popular_series_current_page') || 1
+    )
 
     useEffect(() => {
 
@@ -28,15 +30,11 @@ const PopularSeries = () => {
 
         getPopularSeries()
 
-        sessionStorage.setItem("currentPage", actualPage)
+        sessionStorage.setItem('popular_series_current_page', actualPage)
 
         window.scrollTo({top:0, behavior:"smooth"})
         
     }, [actualPage])
-
-    useEffect(() => {
-        return(sessionStorage.removeItem("currentPage"))
-    })
 
     return (
         <>

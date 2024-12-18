@@ -10,7 +10,7 @@ const Actors = () => {
     const [actors, setActors] = useState([])
     const [totalPages, setTotalPages] = useState(1)
     const [actualPage, setActualPage] = useState(
-        Number(sessionStorage.getItem("currentPage")) || 1
+        Number(sessionStorage.getItem("actors_current_page")) || 1
     )
 
     useEffect(() => {
@@ -28,15 +28,11 @@ const Actors = () => {
 
         getActors()
 
-        sessionStorage.setItem("currentPage", actualPage)
+        sessionStorage.setItem("actors_current_page", actualPage)
 
         window.scrollTo({top:0, behavior:"smooth"})
 
     }, [actualPage])
-
-    useEffect(() => {
-        return(sessionStorage.removeItem("currentPage"))
-    })
 
   return (
     <>

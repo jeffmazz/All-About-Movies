@@ -19,7 +19,8 @@
     transition: .3s;
 }
 
-.pagination_container button:hover {
+.pagination_container button:hover,
+.pagination_container .actual_page:hover {
     transform: scale(1.5);
     color: darkred;
 }
@@ -29,9 +30,14 @@
     pointer-events: none;
 }
 
-.pagination_container .actualPage {
+.pagination_container .actual_page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 48px;
     width: 48px;
-    color: #FFF;
     font-size: 15pt;
+    color: #FFF;
+
+    transition: transform .3s ease-in-out;
 }
