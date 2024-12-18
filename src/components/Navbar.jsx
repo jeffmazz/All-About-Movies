@@ -71,7 +71,7 @@ const Navbar = () => {
 
         <form className={styles.navbar_form} onSubmit={handleQuery}>
             <input type="text" placeholder="Search here!" className={styles.navbar_input} onChange={(e) => setQuery(e.target.value)}/>
-            <button type="submit" className={styles.navbar_button}>
+            <button type="submit" className={styles.navbar_button} aria-label="Search">
               <IoSearchSharp/>
             </button>
         </form>

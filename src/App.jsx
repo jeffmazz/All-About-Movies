@@ -15,7 +15,6 @@ import { ApiKeyContext, ApiKeyProvider } from './context/ApiKeyContext'
 import Actors from './pages/Actors'
 
 function App() {
-
   return (
     <BrowserRouter>
 
@@ -23,15 +22,17 @@ function App() {
 
         <Navbar/>
 
-        <Routes>  
-          <Route path="/" element={<Home/>} />
-          <Route path="/top_movies" element={<TopMovies/>} />
-          <Route path="/popular_movies" element={<PopularMovies/>} />
-          <Route path="/top_series" element={<TopSeries/>} />
-          <Route path="/popular_series" element={<PopularSeries/>} />
-          <Route path="/searched" element={<Searched/>} />
-          <Route path="/actors" element={<Actors/>} />
-        </Routes>
+        <main>
+            <Routes>
+              <Route path="/" element={<Home/>} />
+              <Route path="/top_movies" element={<TopMovies/>} />
+              <Route path="/popular_movies" element={<PopularMovies/>} />
+              <Route path="/top_series" element={<TopSeries/>} />
+              <Route path="/popular_series" element={<PopularSeries/>} />
+              <Route path="/searched" element={<Searched/>} />
+              <Route path="/actors" element={<Actors/>} />
+            </Routes>
+        </main>
 
       </ApiKeyProvider>
     

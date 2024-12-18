@@ -17,23 +17,23 @@ const Pagination = ({ totalPages, actualPage, setActualPage }) => {
     return (
         <div className={styles.pagination_container}>
 
-            <button onClick={() => goToPage(1)} disabled={actualPage === 1}>
+            <button onClick={() => goToPage(1)} disabled={actualPage === 1} aria-label="Go to page 1">
                 <GrChapterPrevious/>
             </button>
 
-            <button onClick={() => goToPage(actualPage - 1)} disabled={actualPage === 1}>
+            <button onClick={() => goToPage(actualPage - 1)} disabled={actualPage === 1} aria-label="Go to previous page">
                 <GrCaretPrevious/>
             </button>
 
-            <button className={styles.actualPage}>
+            <button className={styles.actualPage} aria-label="Actual page number">
                 {actualPage}
             </button>
             
-            <button onClick={() => goToPage(actualPage + 1)} disabled={actualPage === totalPages}>
+            <button onClick={() => goToPage(actualPage + 1)} disabled={actualPage === totalPages} aria-label="Go to next page">
                 <GrCaretNext/>
             </button>
 
-            <button onClick={() => goToPage(totalPages)} disabled={actualPage === totalPages}>
+            <button onClick={() => goToPage(totalPages)} disabled={actualPage === totalPages} aria-label="Go to last page">
                 <GrChapterNext/>
             </button>
 

@@ -23,7 +23,7 @@ const PopularSeries = () => {
                 return
             }
             setPopularSeries(data.results)
-            setTotalPages(100)
+            setTotalPages(400)
         }
 
         getPopularSeries()

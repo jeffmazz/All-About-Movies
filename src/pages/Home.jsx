@@ -237,11 +237,11 @@ const Home = () => {
 
                 <div className={styles.gallery_blocker} ref={galleryBlockerRef}></div>
 
-                <button onClick={prevImage} className={styles.prevBtn}>
+                <button onClick={prevImage} className={styles.prevBtn} aria-label="Go to previous gallery image">
                     <GrPrevious />
                 </button>
 
-                <button onClick={nextImage} className={styles.nextBtn}>
+                <button onClick={nextImage} className={styles.nextBtn} aria-label="Go to next gallery image">
                     <GrNext />
                 </button>
 

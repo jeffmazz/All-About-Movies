@@ -16,14 +16,14 @@ const PopularMovies = () => {
     useEffect(() => {
 
         const getPopularMovies = async() => {
-            const url = 'https://all-about-movies-backend.vercel.app/api/popular-movies.js'
+            const url = `https://all-about-movies-backend.vercel.app/api/popular-movies.js?pageNumber=${actualPage}`
             const data = await fetchData(url)
             if(!data.results) {
                 setPopularMovies('Failed to fetch data')
                 return
             }
             setPopularMovies(data.results)
-            setTotalPages(100)
+            setTotalPages(400)
         }
 
         getPopularMovies()
