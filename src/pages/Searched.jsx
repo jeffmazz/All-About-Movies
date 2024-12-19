@@ -16,10 +16,8 @@ const Searched = () => {
 
     const [searchedResults, setSearchedResults] = useState([])
     const [totalPages, setTotalPages] = useState()
-    const [actualPage, setActualPage] = useState(
-        Number(sessionStorage.getItem("searched_current_page")) || 1
-    )
-
+    const [actualPage, setActualPage] = useState(1)
+    
     useEffect(() => {
 
         const getSearchedResults = async() => {
@@ -34,8 +32,6 @@ const Searched = () => {
         }
 
         getSearchedResults()
-
-        sessionStorage.setItem("searched_current_page", actualPage)
 
         window.scrollTo({top:0, behavior:"smooth"})
         
