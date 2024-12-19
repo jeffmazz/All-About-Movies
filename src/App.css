@@ -7,6 +7,8 @@
 
 body {
     min-height: 100vh;
+    max-width: 1500px;
+    margin: 0 auto;
     background: linear-gradient(darkred 0%, #000 100%);
     color: #FFF;
 }
