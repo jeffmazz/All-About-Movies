@@ -17,6 +17,10 @@ const Searched = () => {
     const [searchedResults, setSearchedResults] = useState([])
     const [totalPages, setTotalPages] = useState()
     const [actualPage, setActualPage] = useState(1)
+
+    useEffect(() => {
+        setActualPage(1)
+    }, [query])
     
     useEffect(() => {
 
