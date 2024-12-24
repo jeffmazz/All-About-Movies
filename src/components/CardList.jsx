@@ -51,7 +51,7 @@ const CardList = ({data}) => {
                 
                 {item?.overview &&
                     <details className="card_overview">
-                        <summary> <span> Overview </span> </summary>
+                        <summary className="card_summary"> <span> Overview </span> </summary>
                         <p> {item.overview} </p>
                     </details>
                 }
