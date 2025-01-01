@@ -25,7 +25,7 @@ const TopSeries = () => {
                 return
             }
             setTopSeries(data.results)
-            setTotalPages(data.totalPages)
+            setTotalPages(105)
         }
 
         getTopSeries()

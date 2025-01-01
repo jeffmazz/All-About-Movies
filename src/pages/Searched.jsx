@@ -18,8 +18,8 @@ const Searched = () => {
     const [totalPages, setTotalPages] = useState()
     const [actualPage, setActualPage] = useState(1)
 
-    const getSearchedResults = async() => {
-        const url = `https://all-about-movies-backend.vercel.app/api/searched.js?q=${query}&pageNumber=${actualPage}`
+    const getSearchedResults = async(pageNumber) => {
+        const url = `https://all-about-movies-backend.vercel.app/api/searched.js?q=${query}&pageNumber=${pageNumber}`
         const data = await fetchData(url)
         if(data.results.length === 0) {
             setSearchedResults('Your search returned no results')
@@ -30,20 +30,13 @@ const Searched = () => {
     }
 
     useEffect(() => {
-        getSearchedResults()
-    }, [])
-
-    useEffect(() => {
         setActualPage(1)
-        getSearchedResults()
+        getSearchedResults(1)
     }, [query])
     
     useEffect(() => {
-
-        getSearchedResults()
-
+        getSearchedResults(actualPage)
         window.scrollTo({top:0, behavior:"smooth"})
-        
     }, [actualPage])
 
     return (

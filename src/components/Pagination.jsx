@@ -48,7 +48,7 @@ const Pagination = ({ totalPages, actualPage, setActualPage }) => {
 
             <div className={styles.actual_page}>
                 <form onSubmit={handleInputSubmit}>
-                    <input type="text" value={inputValue} onChange={handleInputChange}/>
+                    <input type="text" value={inputValue} onChange={handleInputChange} aria-label="Type a page to go"/>
                 </form>
                 <span> of </span>
                 <span> {totalPages} </span>

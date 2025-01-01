@@ -25,7 +25,7 @@ const TopMovies = () => {
                 return
             }
             setTopMovies(data.results)
-            setTotalPages(data.totalPages)
+            setTotalPages(493)
         }
 
         getTopMovies()

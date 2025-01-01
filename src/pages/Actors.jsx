@@ -23,7 +23,7 @@ const Actors = () => {
                 return
             }
             setActors(data.results)
-            setTotalPages(data.totalPages)
+            setTotalPages(500)
         }
 
         getActors()
