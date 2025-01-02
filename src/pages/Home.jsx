@@ -24,44 +24,44 @@ const Home = () => {
 
     const movies = [
         {
-            "title": "The Penguin",
-            "synopsis": "The series follows the rise of the villain Penguin (Oswald Cobblepot) in the streets of Gotham, showcasing his journey to become the city's most powerful crime boss, following the events of 'The Batman'.",
-            "photo_path": "/penguin.png",
-            "genre": "crime",
-            "duration": "8 episodes",
-            "rating": "To be rated",
-            "curious_title": "The Penguin is a spin-off of 'The Batman'!",
-            "curious_text": "The series is created as a spin-off from 'The Batman' (2022), with Colin Farrell reprising his role as Oswald Cobblepot. The show explores Penguin's rise to power in Gotham."
+            title: "The Penguin",
+            synopsis: "The series follows the rise of the villain Penguin (Oswald Cobblepot) in the streets of Gotham, showcasing his journey to become the city's most powerful crime boss, following the events of 'The Batman'.",
+            photo_path: "/penguin.png",
+            genre: "crime",
+            duration: "8 episodes",
+            rating: "To be rated",
+            curious_title: "The Penguin is a spin-off of 'The Batman'!",
+            curious_text: "The series is created as a spin-off from 'The Batman' (2022), with Colin Farrell reprising his role as Oswald Cobblepot. The show explores Penguin's rise to power in Gotham."
         },
         {
-            "title": "Avengers: Endgame",
-            "synopsis": "After the devastating events of Infinity War, the Avengers assemble once more to undo the destruction caused by Thanos and restore balance to the universe.",
-            "photo_path": "/avengers.png",
-            "genre": "action",
-            "duration": "3h 1min",
-            "rating": "5/5",
-            "curious_title": "A record-breaking finale!",
-            "curious_text": "Avengers: Endgame became the highest-grossing film of all time for a period, surpassing Avatar, until its own sequel reclaimed the title."
+            title: "Avengers: Endgame",
+            synopsis: "After the devastating events of Infinity War, the Avengers assemble once more to undo the destruction caused by Thanos and restore balance to the universe.",
+            photo_path: "/avengers.png",
+            genre: "action",
+            duration: "3h 1min",
+            rating: "5/5",
+            curious_title: "A record-breaking finale!",
+            curious_text: "Avengers: Endgame became the highest-grossing film of all time for a period, surpassing Avatar, until its own sequel reclaimed the title."
         },
         {
-            "title": "Batman Begins",
-            "synopsis": "Bruce Wayne's journey to becoming Batman begins as he confronts his inner demons and trains to fight the criminal underworld of Gotham City. He takes on the fearsome role to protect his city from the growing threats.",
-            "photo_path": "/batman.png",
-            "genre": "action",
-            "duration": "2h 20min",
-            "rating": "4.8/5",
-            "curious_title": "Christopher Nolan's reboot of the Batman franchise!",
-            "curious_text": "Batman Begins was the start of Christopher Nolan's iconic trilogy, which redefined the superhero genre with a darker and more realistic take on the character."
+            title: "Batman Begins",
+            synopsis: "Bruce Wayne's journey to becoming Batman begins as he confronts his inner demons and trains to fight the criminal underworld of Gotham City. He takes on the fearsome role to protect his city from the growing threats.",
+            photo_path: "/batman.png",
+            genre: "action",
+            duration: "2h 20min",
+            rating: "4.8/5",
+            curious_title: "Christopher Nolan's reboot of the Batman franchise!",
+            curious_text: "Batman Begins was the start of Christopher Nolan's iconic trilogy, which redefined the superhero genre with a darker and more realistic take on the character."
         },
         {
-            "title": "WALL·E",
-            "synopsis": "WALL·E is a robot who spends his days collecting trash on Earth until he meets Eve, a sleek and futuristic robot. He falls in love with her and embarks on an adventure across the galaxy to save the future of mankind.",
-            "photo_path": "/wall-e.png",
-            "genre": "animation",
-            "duration": "1h 38min",
-            "rating": "4.9/5",
-            "curious_title": "WALL·E is inspired by a real-world object!",
-            "curious_text": "WALL·E's design was inspired by a real-world vacuum cleaner robot, giving it a unique and lovable character, despite being an unlikely hero."
+            title: "WALL·E",
+            synopsis: "WALL·E is a robot who spends his days collecting trash on Earth until he meets Eve, a sleek and futuristic robot. He falls in love with her and embarks on an adventure across the galaxy to save the future of mankind.",
+            photo_path: "/wall-e.png",
+            genre: "animation",
+            duration: "1h 38min",
+            rating: "4.9/5",
+            curious_title: "WALL·E is inspired by a real-world object!",
+            curious_text: "WALL·E's design was inspired by a real-world vacuum cleaner robot, giving it a unique and lovable character, despite being an unlikely hero."
         }
     ]
 
