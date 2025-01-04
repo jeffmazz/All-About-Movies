@@ -1,0 +1,45 @@
+{
+    "movies": [
+      {
+        "title": "O Pinguim",
+        "synopsis": "A série segue a ascensão do vilão Pinguim (Oswald Cobblepot) nas ruas de Gotham, mostrando sua jornada para se tornar o criminoso mais poderoso da cidade, após os eventos de 'The Batman'.",
+        "photo_path": "/penguin.png",
+        "genre": "crime",
+        "duration": "8 episódios",
+        "rating": "A ser classificado",
+        "curious_title": "O Pinguim é um spin-off de 'The Batman'!",
+        "curious_text": "A série foi criada como um spin-off de 'The Batman' (2022), com Colin Farrell reprisando seu papel como Oswald Cobblepot. O show explora a ascensão de Pinguim ao poder em Gotham."
+      },
+      {
+        "title": "Vingadores: Ultimato",
+        "synopsis": "Após os devastadores eventos de Guerra Infinita, os Vingadores se reúnem mais uma vez para desfazer a destruição causada por Thanos e restaurar o equilíbrio do universo.",
+        "photo_path": "/avengers.png",
+        "genre": "ação",
+        "duration": "3h 1min",
+        "rating": "5/5",
+        "curious_title": "Um final que quebrou recordes!",
+        "curious_text": "Vingadores: Ultimato se tornou o filme de maior bilheteira de todos os tempos por um período, superando Avatar, até que sua própria sequência recuperasse o título."
+      },
+      {
+        "title": "Batman Begins",
+        "synopsis": "A jornada de Bruce Wayne para se tornar o Batman começa quando ele confronta seus demônios interiores e treina para lutar contra o submundo do crime de Gotham. Ele assume o temível papel de proteger sua cidade das crescentes ameaças.",
+        "photo_path": "/batman.png",
+        "genre": "ação",
+        "duration": "2h 20min",
+        "rating": "4.8/5",
+        "curious_title": "O reboot de Christopher Nolan da franquia Batman!",
+        "curious_text": "Batman Begins foi o começo da icônica trilogia de Christopher Nolan, que redefiniu o gênero de super-heróis com uma abordagem mais sombria e realista do personagem."
+      },
+      {
+        "title": "WALL·E",
+        "synopsis": "WALL·E é um robô que passa seus dias coletando lixo na Terra até conhecer Eve, um robô futurista e elegante. Ele se apaixona por ela e embarca em uma aventura pela galáxia para salvar o futuro da humanidade.",
+        "photo_path": "/wall-e.png",
+        "genre": "animação",
+        "duration": "1h 38min",
+        "rating": "4.9/5",
+        "curious_title": "WALL·E é inspirado em um objeto real!",
+        "curious_text": "O design de WALL·E foi inspirado em um robô aspirador de pó real, conferindo-lhe um caráter único e adorável, apesar de ser um herói improvável."
+      }
+    ]
+  }
+  
