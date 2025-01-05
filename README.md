@@ -3,6 +3,36 @@
 ## Descrição
 Um site interativo para saber tudo sobre filmes. O site é baseado na API do TMDB para renderizações das páginas, carrosséis e pesquisa.
 
+## Imagens do Projeto
+
+<details>
+  <summary>Veja as capturas de tela</summary>
+
+  ### Home
+  **Parte superior da página inicial:**
+  ![Home Top](/public/Home.png)
+
+  **Parte inferior da página inicial:**
+  ![Home Bottom](/public/Home2.png)
+
+  ### Sidebar
+  **Menu lateral com links para as páginas:**
+  ![Sidebar](/public/Sidebar.png)
+
+  ### CardList
+  **Exemplo do componente CardList:**
+  ![Card List](/public/CardList.png)
+
+  ### Search
+  **Exemplo do resultado de pesquisa**
+  ![Search](/public/Search.png)
+
+  ### Pagination
+  **Exemplo do componente Pagination:**
+  ![Pagination](/public/Pagination.png)
+
+</details>
+
 ## Funcionalidades
 
 - **Navbar**
@@ -15,28 +45,20 @@ Um site interativo para saber tudo sobre filmes. O site é baseado na API do TMD
     - **Actors**
     - **Movies** > **Top Movies** e **Popular Movies**
     - **Series** > **Top Series** e **Popular Series**
-  
-  ![Sidebar](caminho-para-sua-imagem/sidebar.jpg)
 
 - **Página Inicial (Home)**
-  - Galeria/carrossel interativo com botões para modificar os conteúdos.
+  - Uma galeria no topo e um carrossel no final da página
+  - elementos interativos com botões para modificar seus conteúdos.
   - Textos de curiosidades.
-  - Botões para modificar o conteúdo do segundo carrossel.
-
-  ![Home](caminho-para-sua-imagem/home.jpg)
 
 - **Páginas - Movies, Series, Actors e Search**
   - Essas páginas utilizam o componente **CardList**, que recebe os dados através de uma busca no backend e retorna os resultados exibidos como cards no navegador.
-  
-  -![Card List](caminho-para-sua-imagem/card-list.jpg)
   - Os componentes que utilizam o **CardList** também possuem um outro componente chamado **Pagination**.
   - Esse componente recebe a quantidade total de páginas dos resultados e permite a navegação entre elas, garantindo que o conteúdo não fique limitado a apenas uma página.
 
-  ![Pagination](caminho-para-sua-imagem/pagination.jpg)
-
 ## Tecnologias Utilizadas
 
-- **Frontend**: HTML, CSS, JavaScript, React e bibliotecas adicionais.
+- **Frontend**: HTML, CSS, JavaScript, React e bibliotecas adicionais como react-icons.
 - **Backend**: Node.js
 
 ## Como Rodar o Projeto
@@ -47,6 +69,6 @@ Um site interativo para saber tudo sobre filmes. O site é baseado na API do TMD
    ```bash
    npm install
 
-2. Rode o Projeto:
+3. Rode o Projeto:
    ```bash
    npm run dev
