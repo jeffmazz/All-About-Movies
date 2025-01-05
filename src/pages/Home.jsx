@@ -21,10 +21,19 @@ const Home = () => {
     const currentIndexRef = useRef(currentIndex)
 
     const { t, i18n } = useTranslation()
-    
+
     useEffect(() => {
-        i18n.changeLanguage(document.documentElement.lang)
-    }, [document.documentElement.lang])
+        const observer = new MutationObserver(() => {
+            i18n.changeLanguage(document.documentElement.lang)
+        })
+
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['lang']
+        })
+
+        return () => observer.disconnect()
+    }, [i18n])
 
     useEffect(() => {
         currentIndexRef.current = currentIndex
