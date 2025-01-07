@@ -64,11 +64,13 @@ Um site interativo para saber tudo sobre filmes. O site é baseado na API do TMD
 ## Como Rodar o Projeto
 
 1. Clone o Repositório
+   ```bash
+   git clone https://github.com/jeffmazz/All-About-Movies.git
 
-2. Instale as Dependências:
+3. Instale as Dependências:
    ```bash
    npm install
 
-3. Rode o Projeto:
+4. Rode o Projeto:
    ```bash
    npm run dev
