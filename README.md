@@ -74,3 +74,6 @@ Um site interativo para saber tudo sobre filmes. O site é baseado na API do TMD
 4. Rode o Projeto:
    ```bash
    npm run dev
+
+## Link para o site
+- 👉 <a href="https://all-about-movies.vercel.app/" target="_blank">Acessar!</a>
